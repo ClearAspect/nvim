@@ -128,7 +128,12 @@ return {
 						.. string.sub(vim.fn.system("nvim --version | head -n 1"), 1, -2)
 						.. "    "
 						.. require("lazy").stats().loaded
-						.. " plugins",
+						.. " Plugins Loaded",
+					opts = { hl = "SpecialComment", position = "center" },
+				},
+				{
+					type = "text",
+					val = require("lazy").stats().startuptime .. "ms",
 					opts = { hl = "SpecialComment", position = "center" },
 				},
 			},

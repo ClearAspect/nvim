@@ -62,7 +62,7 @@ end, { desc = "Fuzzy Grep" })
 vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Fuzzy Buffers" })
 vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Fuzzy Help" })
 vim.keymap.set("n", "<leader>fc", "<cmd>Telescope commands<cr>", { desc = "Fuzzy Commands" })
-vim.keymap.set("n", "<leader>fr", "<Cmd>Telescope frecency<CR>", { desc = "Fuzzy Frequent Files" })
+vim.keymap.set("n", "<leader>fr", "<cmd>Telescope frecency<cr>", { desc = "Fuzzy Frequent Files" })
 
 vim.keymap.set(
 	"n",
