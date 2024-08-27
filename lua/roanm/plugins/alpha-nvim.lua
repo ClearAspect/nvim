@@ -85,25 +85,23 @@ return {
 			type = "group",
 			val = {
 				-- { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
-				{ type = "padding", val = 0 },
+				{ type = "text", val = string.rep("-", 50), opts = { hl = "SpecialComment", position = "center" } },
 				dashboard.button("SPC fv", "󰉋  Explore Files", "<cmd>Oil<CR>"),
-				{ type = "padding", val = 1 },
 				dashboard.button("SPC ff", "󰥨  Find File", "<cmd>Telescope find_files<CR>"),
-				{ type = "padding", val = 1 },
 				dashboard.button("SPC fg", "󰱼  Find Word", "<cmd>Telescope live_grep<CR>"),
-				{ type = "padding", val = 1 },
 				dashboard.button("SPC fr", "  MRU/Frecent Files", "<cmd>Telescope frecency<CR>"),
+				dashboard.button("s", "  Config", createSystemCommand("config")),
 				{ type = "padding", val = 1 },
-				dashboard.button("s", "  Config Settings", createSystemCommand("config")),
-				{ type = "padding", val = 1 },
-				dashboard.button("SPC q", "  Quit NeoVim", "<cmd>qa<CR>"),
+				dashboard.button("q", "  Quit", "<cmd>qa<CR>"),
+				{ type = "text", val = string.rep("-", 50), opts = { hl = "SpecialComment", position = "center" } },
 			},
 			position = "center",
 		}
 
 		local function get_mru(max_shown)
 			local tbl = {
-				{ type = "text", val = "Recent Files", opts = { hl = "SpecialComment", position = "center" } },
+				{ type = "text", val = "-- Recent Files --", opts = { hl = "SpecialComment", position = "center" } },
+				{ type = "padding", val = 1 },
 			}
 
 			local mru_list = theme.mru(1, "", max_shown)
@@ -115,13 +113,35 @@ return {
 			return { type = "group", val = tbl, opts = {} }
 		end
 
+		local footer = {
+			type = "group",
+			val = {
+
+				{
+					type = "text",
+					val = "  " .. os.date("%A, %B %d, %Y"),
+					opts = { hl = "SpecialComment", position = "center" },
+				},
+				{
+					type = "text",
+					val = "  "
+						.. string.sub(vim.fn.system("nvim --version | head -n 1"), 1, -2)
+						.. "    "
+						.. require("lazy").stats().loaded
+						.. " plugins",
+					opts = { hl = "SpecialComment", position = "center" },
+				},
+			},
+		}
+
 		theme.config.layout = {
 			{ type = "padding", val = 3 },
 			header,
 			{ type = "padding", val = 3 },
-			buttons,
+			get_mru(5),
 			{ type = "padding", val = 2 },
-			get_mru(10),
+			buttons,
+			footer,
 		}
 
 		require("alpha").setup(theme.config)

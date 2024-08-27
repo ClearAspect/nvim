@@ -103,7 +103,7 @@ return {
 
 		local modes = {
 			"mode",
-			icon = "",
+			icon = "",
 			color = function()
 				local mode_color = modecolor
 				return { bg = mode_color[vim.fn.mode()], fg = colors.base, gui = "bold" }
@@ -187,13 +187,13 @@ return {
 			sections = {
 				lualine_a = {
 					modes,
-					space,
-					filename,
-					filetype,
+					-- space,
+					-- filename,
+					-- filetype,
 				},
 				lualine_b = {
-					space,
-					location,
+					-- space,
+					-- location,
 				},
 				lualine_c = {
 					space,
