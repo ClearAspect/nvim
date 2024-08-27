@@ -115,8 +115,11 @@ return {
 
 		local footer = {
 			type = "group",
-			val = {
+			val = {},
+		}
 
+		local function footer_val()
+			local val = {
 				{
 					type = "text",
 					val = "  " .. os.date("%A, %B %d, %Y"),
@@ -128,16 +131,28 @@ return {
 						.. string.sub(vim.fn.system("nvim --version | head -n 1"), 1, -2)
 						.. "    "
 						.. require("lazy").stats().loaded
-						.. " Plugins Loaded",
+						.. "/"
+						.. require("lazy").stats().count
+						.. " Loaded",
 					opts = { hl = "SpecialComment", position = "center" },
 				},
 				{
 					type = "text",
-					val = require("lazy").stats().startuptime .. "ms",
+					val = (math.floor(require("lazy").stats().startuptime * 100 + 0.5) / 100) .. "ms",
 					opts = { hl = "SpecialComment", position = "center" },
 				},
-			},
-		}
+			}
+			return val
+		end
+
+		vim.api.nvim_create_autocmd("User", {
+			once = true,
+			pattern = "LazyVimStarted",
+			callback = function()
+				footer.val = footer_val()
+				pcall(vim.cmd.AlphaRedraw)
+			end,
+		})
 
 		theme.config.layout = {
 			{ type = "padding", val = 3 },
