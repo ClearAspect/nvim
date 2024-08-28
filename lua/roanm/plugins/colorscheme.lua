@@ -1,8 +1,6 @@
 return {
 
-	{
-		"morhetz/gruvbox",
-	},
+	{ "morhetz/gruvbox" },
 	{
 		"sonph/onehalf",
 		config = function(plugin)
@@ -10,42 +8,44 @@ return {
 		end,
 	},
 	{
-		"fcancelinha/nordern.nvim",
+		"dgox16/oldworld.nvim",
 		config = function()
-			local nordern = require("nordern")
-			nordern.setup({})
+			local oldworld = require("oldworld")
+			oldworld.setup({
+				terminal_colors = true, -- enable terminal colors
+				styles = { -- You can pass the style using the format: style = true
+					comments = { italic = true }, -- style for comments
+					keywords = { italic = true }, -- style for keywords
+					identifiers = {}, -- style for identifiers
+					functions = { italic = true }, -- style for functions
+					variables = {}, -- style for variables
+					booleans = {}, -- style for booleans
+				},
+				integrations = { -- You can disable/enable integrations
+					alpha = true,
+					cmp = true,
+					flash = true,
+					gitsigns = true,
+					hop = false,
+					indent_blankline = true,
+					lazy = true,
+					lsp = true,
+					markdown = true,
+					mason = true,
+					navic = false,
+					neo_tree = false,
+					neorg = false,
+					noice = true,
+					notify = true,
+					rainbow_delimiters = false,
+					telescope = true,
+					treesitter = true,
+				},
+				highlight_overrides = {},
+			})
 		end,
 	},
-	-- {
-	-- 	"olimorris/onedarkpro.nvim",
-	-- 	config = function()
-	-- 		local onedarkpro = require("onedarkpro")
-	-- 		onedarkpro.setup({
-	-- 			styles = {
-	-- 				types = "NONE",
-	-- 				methods = "NONE",
-	-- 				numbers = "NONE",
-	-- 				strings = "NONE",
-	-- 				comments = "italic",
-	-- 				keywords = "bold,italic",
-	-- 				constants = "NONE",
-	-- 				functions = "italic",
-	-- 				operators = "NONE",
-	-- 				variables = "NONE",
-	-- 				parameters = "NONE",
-	-- 				conditionals = "italic",
-	-- 				virtual_text = "NONE",
-	-- 			},
-	-- 			options = {
-	-- 				cursorline = false, -- Use cursorline highlighting?
-	-- 				transparency = true, -- Use a transparent background?
-	-- 				terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
-	-- 				lualine_transparency = false, -- Center bar transparency?
-	-- 				highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
+
 	{
 		"loctvl842/monokai-pro.nvim",
 		config = function()

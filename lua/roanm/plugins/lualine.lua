@@ -7,107 +7,78 @@ return {
 	},
 
 	config = function()
-		local colors = require("catppuccin.palettes").get_palette("mocha")
-
-		local modecolor = {
-			n = colors.blue,
-			i = colors.green,
-			v = colors.mauve,
-			[""] = colors.mauve,
-			V = colors.mauve,
-			c = colors.peach,
-			no = colors.red,
-			s = colors.yellow,
-			S = colors.yellow,
-			[""] = colors.yellow,
-			ic = colors.yellow,
-			R = colors.red,
-			Rv = colors.red,
-			cv = colors.red,
-			ce = colors.red,
-			r = colors.sky,
-			rm = colors.sky,
-			["r?"] = colors.sky,
-			["!"] = colors.red,
-			t = colors.maroon,
-		}
+		-- local colors = require("catppuccin.palettes").get_palette("mocha")
+		local colors = require("oldworld.palette")
 
 		local theme = {
-			inactive = {
-				a = { fg = colors.text, bg = nil },
-				b = { fg = colors.text, bg = nil },
-				c = { fg = colors.text, bg = nil },
-				x = { fg = colors.text, bg = nil },
-				y = { fg = colors.text, bg = nil },
-				z = { fg = colors.text, bg = nil },
-			},
 			normal = {
-				a = { fg = colors.text, bg = nil },
-				b = { fg = colors.text, bg = nil },
-				c = { fg = colors.text, bg = nil },
-				x = { fg = colors.text, bg = nil },
-				y = { fg = colors.text, bg = nil },
-				z = { fg = colors.text, bg = nil },
+				a = { fg = colors.bg, bg = colors.red, gui = "bold" },
+				b = { fg = colors.fg, bg = colors.gray2 },
+				c = { fg = colors.fg, bg = colors.gray1 },
 			},
-			insert = { a = { fg = colors.base, bg = nil } },
-			visual = { a = { fg = colors.base, bg = nil } },
-			replace = { a = { fg = colors.base, bg = nil } },
+			command = { a = { fg = colors.bg, bg = colors.yellow, gui = "bold" } },
+			insert = { a = { fg = colors.bg, bg = colors.purple, gui = "bold" } },
+			visual = { a = { fg = colors.bg, bg = colors.magenta, gui = "bold" } },
+			terminal = { a = { fg = colors.bg, bg = colors.green, gui = "bold" } },
+			replace = { a = { fg = colors.bg, bg = colors.orange, gui = "bold" } },
+			inactive = {
+				a = { fg = colors.gray4, bg = colors.bg_dark, gui = "bold" },
+				b = { fg = colors.gray4, bg = colors.bg_dark },
+				c = { fg = colors.gray4, bg = colors.bg_dark },
+			},
 		}
 
 		local space = {
 			function()
 				return " "
 			end,
-			color = { bg = nil, fg = colors.text, gui = "bold" },
+			color = { gui = "italic,bold" },
 		}
 
 		local filename = {
 			"filename",
-			color = { bg = colors.lavender, fg = colors.base, gui = "bold" },
+			color = { gui = "italic,bold" },
 			separator = { left = "", right = "" },
 		}
 
 		local filetype = {
 			"filetype",
 			icons_enabled = false,
-			color = { bg = colors.surface0, fg = colors.lavender, gui = "italic,bold" },
+			color = { gui = "italic,bold" },
 			separator = { left = "", right = "" },
 		}
 
 		local branch = {
 			"branch",
 			icon = "",
-			color = { bg = colors.green, fg = colors.base, gui = "bold" },
+			color = { gui = "italic,bold" },
 			separator = { left = "", right = "" },
 		}
 
 		local location = {
 
 			"location",
-			color = { bg = colors.yellow, fg = colors.base, gui = "bold" },
+			color = { gui = "italic,bold" },
 			separator = { left = "", right = "" },
 		}
 
 		local diff = {
 			"diff",
-			color = { bg = colors.surface0, fg = colors.base, gui = "bold" },
+			color = { gui = "italic,bold" },
 			separator = { left = "", right = "" },
 			symbols = { added = " ", modified = " ", removed = " " },
 
-			diff_color = {
-				added = { fg = colors.green },
-				modified = { fg = colors.yellow },
-				removed = { fg = colors.red },
-			},
+			-- diff_color = {
+			-- 	added = { fg = colors.green },
+			-- 	modified = { fg = colors.yellow },
+			-- 	removed = { fg = colors.red },
+			-- },
 		}
 
-		local modes = {
+		local mode = {
 			"mode",
 			icon = "",
-			color = function()
-				local mode_color = modecolor
-				return { bg = mode_color[vim.fn.mode()], fg = colors.base, gui = "bold" }
-			end,
+			color = { gui = "bold" },
 			separator = { left = "", right = "" },
 		}
 
@@ -136,7 +107,7 @@ return {
 		local macro = {
 			require("noice").api.status.mode.get,
 			cond = require("noice").api.status.mode.has,
-			color = { fg = colors.lavender, bg = colors.surface0, gui = "italic,bold" },
+			color = { gui = "italic,bold" },
 			separator = { left = "", right = "" },
 		}
 
@@ -150,7 +121,7 @@ return {
 				info = { fg = colors.mauve },
 				hint = { fg = colors.sky },
 			},
-			color = { bg = colors.surface0, fg = colors.blue, gui = "bold" },
+			color = { gui = "italic,bold" },
 			separator = { left = "" },
 		}
 
@@ -159,13 +130,13 @@ return {
 				return getLspName()
 			end,
 			separator = { left = "", right = "" },
-			color = { bg = colors.lavender, fg = colors.base, gui = "italic,bold" },
+			color = { gui = "italic,bold" },
 		}
 
 		local command = {
 			require("noice").api.status.command.get,
 			cond = require("noice").api.status.command.has,
-			color = { fg = colors.lavender, bg = colors.surface0, gui = "italic,bold" },
+			color = { gui = "italic,bold" },
 			separator = { left = "", right = "" },
 		}
 
@@ -186,7 +157,7 @@ return {
 
 			sections = {
 				lualine_a = {
-					modes,
+					mode,
 					-- space,
 					-- filename,
 					-- filetype,
@@ -194,20 +165,21 @@ return {
 				lualine_b = {
 					-- space,
 					-- location,
-				},
-				lualine_c = {
 					space,
 					branch,
 					diff,
 				},
-				lualine_x = {},
-				lualine_y = {
+				lualine_c = {},
+				lualine_x = {
+
 					macro,
 					command,
+					space,
+				},
+				lualine_y = {
+					dia,
 				},
 				lualine_z = {
-					space,
-					dia,
 					lsp,
 				},
 			},
