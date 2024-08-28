@@ -16,6 +16,19 @@ return {
 
 		telescope.setup({
 			defaults = {
+				layout_strategy = "horizontal",
+				layout_config = {
+
+					prompt_position = "top",
+					height = 0.80,
+					width = 0.8,
+					horizontal = {
+						mirror = false,
+					},
+					vertical = {
+						mirror = false,
+					},
+				},
 				path_display = { "truncate " },
 				mappings = {
 					i = {
