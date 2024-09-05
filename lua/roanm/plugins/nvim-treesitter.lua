@@ -29,6 +29,7 @@ return {
 					"java",
 					"c",
 					"cpp",
+					"css",
 					"rust",
 					"python",
 					"javascript",

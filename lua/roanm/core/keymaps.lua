@@ -32,9 +32,6 @@ vim.keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<cr>", { desc = "Open UndoT
 -- Alpha.nvim
 vim.keymap.set("n", "<leader><ESC>", "<cmd>Alpha<cr>", { desc = "Main Menu" })
 
--- Rest Client
-vim.keymap.set("n", "<leader><C-L>", "<cmd>lua require('kulala').run()<CR>", { desc = "Rest Client Run" })
-
 -- ╔═════════════════════════════════════════════════╗
 -- ║ Buffers                                         ║
 -- ╚═════════════════════════════════════════════════╝

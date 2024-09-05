@@ -81,7 +81,7 @@ return {
 			local catppuccin = require("catppuccin")
 			catppuccin.setup({
 				flavour = "auto",
-				transparent_background = true,
+				transparent_background = false,
 				term_colors = true,
 				styles = {
 					comments = { "italic" },
