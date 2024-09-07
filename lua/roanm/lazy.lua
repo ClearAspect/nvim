@@ -25,4 +25,4 @@ require("lazy").setup({
 
 vim.cmd("colorscheme catppuccin-mocha")
 -- vim.cmd("colorscheme oldworld")
-vim.cmd("Copilot disable")
+-- vim.cmd("Copilot disable")
