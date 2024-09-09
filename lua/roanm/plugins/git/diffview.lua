@@ -1,14 +1,7 @@
 return {
 	"sindrets/diffview.nvim",
-	cmd = {
-		"DiffviewOpen",
-		"DiffviewClose",
-		"DiffviewRefresh",
-		"DiffviewFocusFiles",
-		"DiffviewToggleFiles",
-		"Diffviewlog",
-		"DiffviewFileHistory",
-	},
+	lazy = true,
+	event = "VeryLazy",
 
 	config = function()
 		local diffview = require("diffview")

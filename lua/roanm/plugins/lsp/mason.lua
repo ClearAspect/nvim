@@ -1,5 +1,6 @@
 return {
 	"williamboman/mason.nvim",
+	event = "VeryLazy",
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -30,7 +31,7 @@ return {
 				"lua_ls",
 				"ruff",
 				"rust_analyzer",
-				"tsserver",
+				"ts_ls",
 				"vimls",
 				"zls",
 			},

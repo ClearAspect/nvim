@@ -1,5 +1,7 @@
 return {
 	"andweeb/presence.nvim",
+	lazy = true,
+	event = "VeryLazy",
 	config = function()
 		local presence = require("presence")
 

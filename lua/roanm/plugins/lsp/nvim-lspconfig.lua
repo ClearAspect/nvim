@@ -1,37 +1,29 @@
 return {
 	"neovim/nvim-lspconfig",
-	event = { "BufReadPre", "BufNewFile" },
+	-- event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
-		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	-- Setup language servers.
 	config = function()
 		local lspconfig = require("lspconfig")
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-		local opts = { noremap = true, silent = true }
-		local on_attach = function(client, bufnr)
-			opts.buffer = bufnr
-		end
 
 		-- LSP SERVERS
 
 		if vim.fn.executable("biome") == 1 then
 			lspconfig.biome.setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 			})
 		end
 		if vim.fn.executable("clangd") == 1 then
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 			})
 		end
 		if vim.fn.executable("jdtls") == 1 then
 			lspconfig.jdtls.setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 				handlers = {
 					["language/status"] = function(_, result)
 						-- Print or whatever.
@@ -45,14 +37,12 @@ return {
 		if vim.fn.executable("java-language-server") == 1 then
 			lspconfig.java_language_server.setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 				cmd = { "java-language-server" },
 			})
 		end
 		if vim.fn.executable("lua-language-server") == 1 then
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 				settings = {
 					Lua = {
 						diagnostics = {
@@ -66,29 +56,24 @@ return {
 		if vim.fn.executable("ruff") == 1 then
 			lspconfig.ruff.setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 			})
 		end
 		if vim.fn.executable("rust-analyzer") == 1 then
 			lspconfig.rust_analyzer.setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 			})
 		end
 		if vim.fn.executable("typescript-language-server") == 1 then
 			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 			})
 		end
 		lspconfig.vimls.setup({
 			capabilities = capabilities,
-			on_attach = on_attach,
 		})
 		if vim.fn.executable("zls") == 1 then
 			lspconfig.zls.setup({
 				capabilities = capabilities,
-				on_attach = on_attach,
 			})
 		end
 

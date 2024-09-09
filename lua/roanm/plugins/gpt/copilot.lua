@@ -1,7 +1,6 @@
 return {
 	{
-
-		"github/copilot.vim",
+		"zbirenbaum/copilot.lua",
 		event = "BufReadPre",
 		config = function() end,
 	},
@@ -9,7 +8,7 @@ return {
 		"CopilotC-Nvim/CopilotChat.nvim",
 		branch = "canary",
 		dependencies = {
-			"github/copilot.vim",
+			"zbirenbaum/copilot.lua",
 			"nvim-lua/plenary.nvim", -- for curl, log wrapper
 		},
 		opts = {

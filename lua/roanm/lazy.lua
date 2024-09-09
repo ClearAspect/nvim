@@ -26,3 +26,5 @@ require("lazy").setup({
 vim.cmd("colorscheme catppuccin-mocha")
 -- vim.cmd("colorscheme oldworld")
 -- vim.cmd("Copilot disable")
+
+vim.lsp.set_log_level("debug")
