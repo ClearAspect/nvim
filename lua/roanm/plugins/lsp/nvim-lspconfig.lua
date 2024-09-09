@@ -1,6 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
-	-- event = { "BufReadPre", "BufNewFile" },
+	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 	},
@@ -8,74 +8,6 @@ return {
 	config = function()
 		local lspconfig = require("lspconfig")
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-		-- LSP SERVERS
-
-		if vim.fn.executable("biome") == 1 then
-			lspconfig.biome.setup({
-				capabilities = capabilities,
-			})
-		end
-		if vim.fn.executable("clangd") == 1 then
-			lspconfig.clangd.setup({
-				capabilities = capabilities,
-			})
-		end
-		if vim.fn.executable("jdtls") == 1 then
-			lspconfig.jdtls.setup({
-				capabilities = capabilities,
-				handlers = {
-					["language/status"] = function(_, result)
-						-- Print or whatever.
-					end,
-					["$/progress"] = function(_, result, ctx)
-						-- disable progress updates.
-					end,
-				},
-			})
-		end
-		if vim.fn.executable("java-language-server") == 1 then
-			lspconfig.java_language_server.setup({
-				capabilities = capabilities,
-				cmd = { "java-language-server" },
-			})
-		end
-		if vim.fn.executable("lua-language-server") == 1 then
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { "vim" },
-						},
-					},
-				},
-			})
-		end
-
-		if vim.fn.executable("ruff") == 1 then
-			lspconfig.ruff.setup({
-				capabilities = capabilities,
-			})
-		end
-		if vim.fn.executable("rust-analyzer") == 1 then
-			lspconfig.rust_analyzer.setup({
-				capabilities = capabilities,
-			})
-		end
-		if vim.fn.executable("typescript-language-server") == 1 then
-			lspconfig.ts_ls.setup({
-				capabilities = capabilities,
-			})
-		end
-		lspconfig.vimls.setup({
-			capabilities = capabilities,
-		})
-		if vim.fn.executable("zls") == 1 then
-			lspconfig.zls.setup({
-				capabilities = capabilities,
-			})
-		end
 
 		-- Global mappings.
 		-- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -110,6 +42,55 @@ return {
 				vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
 				vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 			end,
+		})
+
+		-- LSP SERVERS
+
+		lspconfig.biome.setup({
+			capabilities = capabilities,
+		})
+		lspconfig.clangd.setup({
+			capabilities = capabilities,
+		})
+		lspconfig.jdtls.setup({
+			capabilities = capabilities,
+			handlers = {
+				["language/status"] = function(_, result)
+					-- Print or whatever.
+				end,
+				["$/progress"] = function(_, result, ctx)
+					-- disable progress updates.
+				end,
+			},
+		})
+		lspconfig.java_language_server.setup({
+			capabilities = capabilities,
+			cmd = { "java-language-server" },
+		})
+		lspconfig.lua_ls.setup({
+			capabilities = capabilities,
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { "vim" },
+					},
+				},
+			},
+		})
+		lspconfig.ruff.setup({
+			capabilities = capabilities,
+		})
+		lspconfig.rust_analyzer.setup({
+			capabilities = capabilities,
+		})
+		lspconfig.ts_ls.setup({
+			capabilities = capabilities,
+		})
+		lspconfig.vimls.setup({
+			capabilities = capabilities,
+		})
+		lspconfig.zls.setup({
+			capabilities = capabilities,
 		})
 	end,
 }
