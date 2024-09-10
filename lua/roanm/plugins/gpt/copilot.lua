@@ -2,7 +2,11 @@ return {
 	{
 		"zbirenbaum/copilot.lua",
 		event = "BufReadPre",
-		config = function() end,
+		lazy = true,
+		config = function()
+			local copilot = require("copilot")
+			copilot.setup({})
+		end,
 	},
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
