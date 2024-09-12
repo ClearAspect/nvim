@@ -63,10 +63,10 @@ return {
 				end,
 			},
 		})
-		lspconfig.java_language_server.setup({
-			capabilities = capabilities,
-			cmd = { "java-language-server" },
-		})
+		-- lspconfig.java_language_server.setup({
+		-- 	capabilities = capabilities,
+		-- 	cmd = { "java-language-server" },
+		-- })
 		lspconfig.lua_ls.setup({
 			capabilities = capabilities,
 			settings = {

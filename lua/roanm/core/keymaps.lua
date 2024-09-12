@@ -1,6 +1,3 @@
-vim.api.nvim_set_keymap("n", "<C-k>", ":lua require('kulala').jump_prev()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-j>", ":lua require('kulala').jump_next()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-l>", ":lua require('kulala').run()<CR>", { noremap = true, silent = true })
 -- ╔═════════════════════════════════════════════════╗
 -- ║ Leader Key                                      ║
 -- ╚═════════════════════════════════════════════════╝
@@ -95,4 +92,4 @@ vim.keymap.set({ "i", "s" }, "<C-CR>", function()
 end, { silent = true })
 
 -- copilot
-vim.keymap.set("i", "<C-L>", "<Plug>(copilot-accept-word)")
+-- vim.keymap.set("i", "<C-L>", ":lua require('copilot.suggestion').accept_word()")
