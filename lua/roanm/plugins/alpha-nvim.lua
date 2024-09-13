@@ -85,7 +85,7 @@ return {
 			type = "group",
 			val = {
 				-- { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
-				{ type = "text", val = string.rep("-", 50), opts = { hl = "SpecialComment", position = "center" } },
+				{ type = "text",    val = string.rep("-", 50), opts = { hl = "SpecialComment", position = "center" } },
 				dashboard.button("SPC fv", "󰉋  Explore Files", "<cmd>Oil<CR>"),
 				dashboard.button("SPC ff", "󰥨  Find File", "<cmd>Telescope find_files<CR>"),
 				dashboard.button("SPC fg", "󰱼  Find Word", "<cmd>Telescope live_grep<CR>"),
@@ -100,7 +100,7 @@ return {
 
 		local function get_mru(max_shown)
 			local tbl = {
-				{ type = "text", val = "-- Recent Files --", opts = { hl = "SpecialComment", position = "center" } },
+				{ type = "text",    val = "-- Recent Files --", opts = { hl = "SpecialComment", position = "center" } },
 				{ type = "padding", val = 1 },
 			}
 
@@ -149,8 +149,10 @@ return {
 			once = true,
 			pattern = "LazyVimStarted",
 			callback = function()
-				footer.val = footer_val()
-				pcall(vim.cmd.AlphaRedraw)
+				vim.defer_fn(function()
+					footer.val = footer_val()
+					pcall(vim.cmd.AlphaRedraw)
+				end, 0)
 			end,
 		})
 
