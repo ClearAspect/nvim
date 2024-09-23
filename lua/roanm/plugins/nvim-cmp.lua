@@ -2,22 +2,36 @@ return {
 	"hrsh7th/nvim-cmp",
 	event = { "InsertEnter" },
 	dependencies = {
-		"hrsh7th/cmp-buffer", -- source for text in buffer
-		"hrsh7th/cmp-path", -- source for file system paths
-		"hrsh7th/cmp-cmdline", -- source for math calculations
+		"hrsh7th/cmp-buffer",     -- source for text in buffer
+		"hrsh7th/cmp-path",       -- source for file system paths
+		"hrsh7th/cmp-cmdline",    -- source for math calculations
+		"onsails/lspkind.nvim",   -- for icons
 
-		"L3MON4D3/LuaSnip", -- snippet engine
+		"L3MON4D3/LuaSnip",       -- snippet engine
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"rafamadriz/friendly-snippets", -- useful snippets
 	},
 	config = function()
 		local luasnip = require("luasnip")
 		local cmp = require("cmp")
+		local lspkind = require('lspkind')
 
 		require("luasnip.loaders.from_vscode").lazy_load()
 		luasnip.filetype_extend("java", { "javadoc" })
 
 		cmp.setup({
+			formatting = {
+				format = lspkind.cmp_format({
+					mode = "symbol_text",
+					-- menu = ({
+					-- 	buffer = "[Buffer]",
+					-- 	nvim_lsp = "[LSP]",
+					-- 	luasnip = "[LuaSnip]",
+					-- 	nvim_lua = "[Lua]",
+					-- 	latex_symbols = "[Latex]",
+					-- })
+				}),
+			},
 			snippet = {
 				-- REQUIRED - you must specify a snippet engine
 				expand = function(args)
