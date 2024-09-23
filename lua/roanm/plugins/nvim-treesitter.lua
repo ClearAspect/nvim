@@ -38,6 +38,7 @@ return {
 					"html",
 					"css",
 					"latex",
+					"nix",
 					"vim",
 					"vimdoc",
 					"zig",

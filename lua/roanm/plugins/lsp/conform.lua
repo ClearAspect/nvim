@@ -25,6 +25,7 @@ return {
 				c = { "clang-format" },
 				java = { "clang-format" },
 				css = { "prettier" },
+				nix = { "alejandra" },
 				zig = { "zig fmt" },
 			},
 			format_on_save = {

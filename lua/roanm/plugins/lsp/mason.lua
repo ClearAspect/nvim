@@ -29,6 +29,7 @@ return {
 				"jdtls",
 				"ltex",
 				"lua_ls",
+				"nil_ls",
 				"ruff",
 				"rust_analyzer",
 				"ts_ls",
