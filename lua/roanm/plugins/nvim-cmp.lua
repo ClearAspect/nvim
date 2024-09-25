@@ -2,19 +2,19 @@ return {
 	"hrsh7th/nvim-cmp",
 	event = { "InsertEnter" },
 	dependencies = {
-		"hrsh7th/cmp-buffer",     -- source for text in buffer
-		"hrsh7th/cmp-path",       -- source for file system paths
-		"hrsh7th/cmp-cmdline",    -- source for math calculations
-		"onsails/lspkind.nvim",   -- for icons
+		"hrsh7th/cmp-buffer", -- source for text in buffer
+		"hrsh7th/cmp-path", -- source for file system paths
+		"hrsh7th/cmp-cmdline", -- source for math calculations
+		"onsails/lspkind.nvim", -- for icons
 
-		"L3MON4D3/LuaSnip",       -- snippet engine
+		"L3MON4D3/LuaSnip", -- snippet engine
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"rafamadriz/friendly-snippets", -- useful snippets
 	},
 	config = function()
 		local luasnip = require("luasnip")
 		local cmp = require("cmp")
-		local lspkind = require('lspkind')
+		local lspkind = require("lspkind")
 
 		require("luasnip.loaders.from_vscode").lazy_load()
 		luasnip.filetype_extend("java", { "javadoc" })
@@ -43,8 +43,8 @@ return {
 				documentation = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
-				["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-				["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+				["<C-d>"] = cmp.mapping.scroll_docs(-4),
+				["<C-f>"] = cmp.mapping.scroll_docs(4),
 				["<ESC>"] = cmp.mapping.close(),
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
 				-- ["<CR>"] = cmp.mapping.confirm({ select = true }),
