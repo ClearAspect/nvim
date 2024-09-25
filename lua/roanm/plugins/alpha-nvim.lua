@@ -24,7 +24,7 @@ return {
 				end
 			elseif separator == "/" then
 				if folder == "config" then
-					return "<cmd>e ~/dotfiles/.config/nvim<CR>"
+					return "<cmd>e ~/.config/nvim<CR>"
 				elseif folder == "git" then
 					return "<cmd>e ~/Documents/GitHub/<CR>"
 				end

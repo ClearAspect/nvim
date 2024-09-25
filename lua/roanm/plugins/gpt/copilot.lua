@@ -27,7 +27,7 @@ return {
 					hide_during_completion = true,
 					debounce = 75,
 					keymap = {
-						accept = "<tab>",
+						accept = "<C-y>",
 						accept_word = "<M-l>",
 						accept_line = false,
 						next = "<M-]>",
@@ -60,7 +60,7 @@ return {
 			"nvim-lua/plenary.nvim", -- for curl, log wrapper
 		},
 		opts = {
-			debug = true, -- Enable debugging
+			debug = false, -- Enable debugging
 			-- See Configuration section for rest
 		},
 		-- See Commands section for default commands if you want to lazy load on them
