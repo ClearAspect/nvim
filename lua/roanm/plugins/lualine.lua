@@ -7,8 +7,8 @@ return {
 	},
 
 	config = function()
-		-- local colors = require("catppuccin.palettes").get_palette("mocha")
-		local colors = require("oldworld.palette")
+		local colors = require("catppuccin.palettes").get_palette("mocha")
+		-- local colors = require("oldworld.palette")
 
 		local theme = {
 			normal = {

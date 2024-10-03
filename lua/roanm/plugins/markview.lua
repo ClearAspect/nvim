@@ -1,5 +1,6 @@
 return {
 	"OXY2DEV/markview.nvim",
+	event = { "BufReadPre *.md" },
 
 	dependencies = {
 		-- You may not need this if you don't lazy load

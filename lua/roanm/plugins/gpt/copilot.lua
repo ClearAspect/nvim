@@ -1,7 +1,7 @@
 return {
 	{
 		"zbirenbaum/copilot.lua",
-		event = "BufReadPre",
+		event = { "BufReadPre", "BufNewFile" },
 		lazy = true,
 		config = function()
 			local copilot = require("copilot")
@@ -54,6 +54,7 @@ return {
 	},
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
+		event = { "BufReadPre", "BufNewFile" },
 		branch = "canary",
 		dependencies = {
 			"zbirenbaum/copilot.lua",
