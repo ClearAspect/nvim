@@ -64,9 +64,10 @@ vim.keymap.set(
 	"<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>",
 	{ desc = "Fuzzy Buffer" }
 )
-vim.keymap.set("n", "<leader>fm", function()
-	require("telescope.builtin").lsp_document_symbols({ symbols = { "function", "method", "class" } })
+vim.keymap.set("n", "<leader>fs", function()
+	require("telescope.builtin").lsp_document_symbols()
 end, { desc = "Fuzzy Document Symbols" })
+-- { symbols = { "function", "method", "class" } }
 vim.keymap.set("n", "<leader>fe", function()
 	require("telescope.builtin").diagnostics()
 end, { desc = "Fuzzy Errors" })

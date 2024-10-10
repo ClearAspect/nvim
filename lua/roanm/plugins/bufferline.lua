@@ -31,6 +31,11 @@ return {
 						text_align = "center",
 					},
 					{
+						filetype = "gitsigns-blame",
+						text = "Git Blame",
+						text_align = "center",
+					},
+					{
 						filetype = "undotree",
 						text = "History",
 						text_align = "center",
