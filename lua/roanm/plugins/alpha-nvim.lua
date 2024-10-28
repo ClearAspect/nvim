@@ -160,7 +160,7 @@ return {
 			{ type = "padding", val = 3 },
 			header,
 			{ type = "padding", val = 3 },
-			get_mru(5),
+			get_mru(7),
 			{ type = "padding", val = 2 },
 			buttons,
 			footer,
