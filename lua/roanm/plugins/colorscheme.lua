@@ -17,4 +17,12 @@ return {
 			})
 		end,
 	},
+	{
+		"shaunsingh/nord.nvim",
+
+		config = function()
+			local nord = require("nord")
+		end,
+
+	},
 }

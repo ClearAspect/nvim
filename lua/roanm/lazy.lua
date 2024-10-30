@@ -23,8 +23,8 @@ require("lazy").setup({
 	change_detection = { enabled = true, notify = false },
 })
 
-vim.cmd("colorscheme catppuccin-mocha")
--- vim.cmd("colorscheme oldworld")
+-- vim.cmd("colorscheme catppuccin-mocha")
+vim.cmd("colorscheme nord")
 -- vim.cmd("Copilot disable")
 
 vim.lsp.set_log_level("debug")
