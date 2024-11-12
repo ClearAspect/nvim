@@ -92,5 +92,19 @@ vim.keymap.set({ "i", "s" }, "<C-CR>", function()
 	end
 end, { silent = true })
 
+
+-- ╔═════════════════════════════════════════════════╗
+-- ║ Git                                             ║
+-- ╚═════════════════════════════════════════════════╝
+
+
+vim.keymap.set("n", "<leader>gs", "<cmd>Neogit<cr>", { desc = "Git Status" })
+vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns blame<cr>", { desc = "Git Blame" })
+vim.keymap.set("n", "<leader>gdo", "<cmd>DiffviewOpen<cr>", { desc = "Open Diff View" })
+vim.keymap.set("n", "<leader>gdc", "<cmd>DiffviewClose<cr>", { desc = "Close Diff View" })
+
+
+
+
 -- copilot
 -- vim.keymap.set("i", "<C-L>", ":lua require('copilot.suggestion').accept_word()")
