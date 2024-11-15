@@ -61,8 +61,9 @@ return {
 			"nvim-lua/plenary.nvim", -- for curl, log wrapper
 		},
 		opts = {
-			debug = false, -- Enable debugging
+			debug = false,      -- Enable debugging
 			-- See Configuration section for rest
+			model = 'claude-3.5-sonnet', -- GPT model to use, see ':CopilotChatModels' for available models
 		},
 		-- See Commands section for default commands if you want to lazy load on them
 	},

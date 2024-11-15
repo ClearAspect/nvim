@@ -104,6 +104,24 @@ vim.keymap.set("n", "<leader>gdo", "<cmd>DiffviewOpen<cr>", { desc = "Open Diff 
 vim.keymap.set("n", "<leader>gdc", "<cmd>DiffviewClose<cr>", { desc = "Close Diff View" })
 
 
+-- ╔═════════════════════════════════════════════════╗
+-- ║ CopilotChat                                     ║
+-- ╚═════════════════════════════════════════════════╝
+
+vim.keymap.set("n", "<leader>cco", "<cmd>CopilotChatOpen<cr>", { desc = "CopilotChat - Open" })
+vim.keymap.set("n", "<leader>ccf", "<cmd>CopilotChatFix<cr>", { desc = "CopilotChat - Fix Error" })
+vim.keymap.set("n", "<leader>cce", "<cmd>CopilotChatExplain<cr>", { desc = "CopilotChat - Explain code" })
+vim.keymap.set("n", "<leader>ccf", "<cmd>CopilotChatCode<cr>", { desc = "CopilotChat - Review Code" })
+
+
+vim.keymap.set("n", "<leader>ccq", function()
+		local input = vim.fn.input("Quick Chat: ")
+		if input ~= "" then
+			require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+		end
+	end,
+	{ desc = "CopilotChat - Quick chat" })
+
 
 
 -- copilot
