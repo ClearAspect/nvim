@@ -10,10 +10,10 @@ vim.keymap.set("n", "<c-s>", "<cmd>update<cr>", { desc = "save file" }, { norema
 vim.keymap.set("i", "<c-s>", "<c-o><cmd>update<cr>", { desc = "save file" }, { noremap = true })
 
 -- vim.keymap.set("n", "<leader>q", "<cmd>q<cr>")
-vim.keymap.set({ "n" }, "<Esc>", function()
-	vim.cmd("nohlsearch")
-	vim.cmd("NoiceDismiss")
-end, { desc = "Clear Notifications and Remove Search Highlighting" })
+-- vim.keymap.set({ "n" }, "<Esc>", function()
+-- 	vim.cmd("nohlsearch")
+-- 	vim.cmd("NoiceDismiss")
+-- end, { desc = "Clear Notifications and Remove Search Highlighting" }, { noremap = true })
 
 -- Alt-Backspace functionality
 vim.keymap.set("i", "<M-BS>", "<C-o>db", { desc = "Alt-Backspace" })

@@ -7,9 +7,68 @@ return {
 	},
 
 	config = function()
-		local colors = require("catppuccin.palettes").get_palette("mocha")
+		-- local colors = require("catppuccin.palettes").get_palette("mocha")
 		-- local colors = require("oldworld.palette")
 
+		--[[ OneHalf
+			                        light     dark
+			0   normal  black       #383a42   #282c34
+			1   normal  red         #e45649   #e06c75
+			2   normal  green       #50a14f   #98c379
+			3   normal  yellow      #c18401   #e5c07b
+			4   normal  blue        #0184bc   #61afef
+			5   normal  magenta     #a626a4   #c678dd
+			6   normal  cyan        #0997b3   #56b6c2
+			7   normal  white       #fafafa   #dcdfe4
+						foreground  #383a42   #dcdfe4
+						background  #fafafa   #282c34
+		--]]
+
+		local onehalfPalette = {
+			blackLight = "#383a42",
+			blackDark = "#282c34",
+			redLight = "#e45649",
+			redDark = "#e06c75",
+			greenLight = "#50a14f",
+			greenDark = "#98c379",
+			yellowLight = "#c18401",
+			yellowDark = "#e5c07b",
+			blueLight = "#0184bc",
+			blueDark = "#61afef",
+			magentaLight = "#a626a4",
+			magentaDark = "#c678dd",
+			cyanLight = "#0997b3",
+			cyanDark = "#56b6c2",
+			whiteLight = "#fafafa",
+			whiteDark = "#dcdfe4",
+			foregroundLight = "#383a42",
+			foregroundDark = "#dcdfe4",
+			backgroundLight = "#fafafa",
+			backgroundDark = "#282c34",
+
+		}
+		local onehalfdarkTheme = {
+			normal = {
+				a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.blueDark, gui = "bold" },
+			},
+			command = { a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.redDark, gui = "bold" } },
+			insert = { a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.greenDark, gui = "bold" } },
+			visual = { a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.blueDark, gui = "bold" } },
+			terminal = { a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.yellowDark, gui = "bold" } },
+			replace = { a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.backgroundDark, gui = "bold" } },
+			inactive = {
+				a = { fg = onehalfPalette.gray4, bg = onehalfPalette.backgroundDark, gui = "bold" },
+				b = { fg = onehalfPalette.gray4, bg = onehalfPalette.backgroundDark },
+				c = { fg = onehalfPalette.gray4, bg = onehalfPalette.backgroundDark },
+			},
+
+
+
+		}
+
+
+		--[[
+	
 		local theme = {
 			normal = {
 				a = { fg = colors.bg, bg = colors.red, gui = "bold" },
@@ -27,6 +86,8 @@ return {
 				c = { fg = colors.gray4, bg = colors.bg_dark },
 			},
 		}
+
+		--]]
 
 		local space = {
 			function()
@@ -116,10 +177,10 @@ return {
 			sources = { "nvim_diagnostic" },
 			symbols = { error = " ", warn = " ", info = " ", hint = " " },
 			diagnostics_color = {
-				error = { fg = colors.red },
-				warn = { fg = colors.yellow },
-				info = { fg = colors.mauve },
-				hint = { fg = colors.sky },
+				error = { fg = onehalfPalette.redDark },
+				warn = { fg = onehalfPalette.yellowDark },
+				info = { fg = onehalfPalette.magentaDark },
+				hint = { fg = onehalfPalette.cyanDark },
 			},
 			color = { gui = "italic,bold" },
 			separator = { left = "" },
@@ -142,6 +203,7 @@ return {
 
 		require("lualine").setup({
 			options = {
+				-- theme = onehalfdarkTheme,
 				theme = "auto",
 				icons_enabled = true,
 				component_separators = { left = "", right = "" },

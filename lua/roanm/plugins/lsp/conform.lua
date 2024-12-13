@@ -27,6 +27,7 @@ return {
 				css = { "prettier" },
 				nix = { "alejandra" },
 				zig = { "zig fmt" },
+				toml = { "taplo" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

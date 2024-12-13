@@ -40,10 +40,17 @@ vim.opt.splitkeep = "cursor"
 -- ║ AutoCommands 									 ║
 -- ╚═════════════════════════════════════════════════╝
 
+vim.diagnostic.config({
+	virtual_text = false,
+	virtual_lines = true,
+})
+
+
 -- Disable virtual text since it's redundant due to lsp_lines.nvim
-vim.api.nvim_create_autocmd("WinEnter", {
+vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
 	callback = function()
-		local floating = vim.api.nvim_win_get_config(0).relative ~= ""
+		local winid = vim.api.nvim_get_current_win()
+		local floating = vim.api.nvim_win_get_config(winid).relative ~= ""
 		vim.diagnostic.config({
 			virtual_text = floating,
 			virtual_lines = not floating,
