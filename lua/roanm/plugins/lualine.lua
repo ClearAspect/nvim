@@ -25,46 +25,58 @@ return {
 		--]]
 
 		local onehalfPalette = {
-			blackLight = "#383a42",
-			blackDark = "#282c34",
-			redLight = "#e45649",
-			redDark = "#e06c75",
-			greenLight = "#50a14f",
-			greenDark = "#98c379",
-			yellowLight = "#c18401",
-			yellowDark = "#e5c07b",
-			blueLight = "#0184bc",
-			blueDark = "#61afef",
-			magentaLight = "#a626a4",
-			magentaDark = "#c678dd",
-			cyanLight = "#0997b3",
-			cyanDark = "#56b6c2",
-			whiteLight = "#fafafa",
-			whiteDark = "#dcdfe4",
-			foregroundLight = "#383a42",
-			foregroundDark = "#dcdfe4",
-			backgroundLight = "#fafafa",
-			backgroundDark = "#282c34",
+			black = '#282c34',
+			red = '#e06c75',
+			green = '#98c379',
+			yellow = '#e5c07b',
+			blue = '#61afef',
+			magenta = '#c678dd',
+			cyan = '#56b6c2',
+			white = '#dcdfe4',
+			fg = '#dcdfe4',
+			bg = '#282c34',
+
+
+			light_black = '#383a42',
+			light_red = '#e45649',
+			light_green = '#50a14f',
+			light_yellow = '#c18401',
+			light_blue = '#0184bc',
+			light_magenta = '#a626a4',
+			light_cyan = '#0997b3',
+			light_white = '#fafafa',
+			light_fg = '#383a42',
+			light_bg = '#fafafa',
+
+
+			comment_fg = '#5c6370',
+			gutter_bg = 'bg',
+			gutter_fg = '#919baa',
+			non_text = '#373C45',
+
+			cursor_line = '#313640',
+			color_col = '#313640',
+
+			selection = '#474e5d',
+			vertsplit = '#313640',
 
 		}
-		local onehalfdarkTheme = {
-			normal = {
-				a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.blueDark, gui = "bold" },
-			},
-			command = { a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.redDark, gui = "bold" } },
-			insert = { a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.greenDark, gui = "bold" } },
-			visual = { a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.blueDark, gui = "bold" } },
-			terminal = { a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.yellowDark, gui = "bold" } },
-			replace = { a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.backgroundDark, gui = "bold" } },
-			inactive = {
-				a = { fg = onehalfPalette.gray4, bg = onehalfPalette.backgroundDark, gui = "bold" },
-				b = { fg = onehalfPalette.gray4, bg = onehalfPalette.backgroundDark },
-				c = { fg = onehalfPalette.gray4, bg = onehalfPalette.backgroundDark },
-			},
+		-- local onehalfdarkTheme = {
+		-- 	normal = {
+		-- 		a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.blueDark, gui = "bold" },
+		-- 	},
+		-- 	command = { a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.redDark, gui = "bold" } },
+		-- 	insert = { a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.greenDark, gui = "bold" } },
+		-- 	visual = { a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.blueDark, gui = "bold" } },
+		-- 	terminal = { a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.yellowDark, gui = "bold" } },
+		-- 	replace = { a = { fg = onehalfPalette.backgroundDark, bg = onehalfPalette.backgroundDark, gui = "bold" } },
+		-- 	inactive = {
+		-- 		a = { fg = onehalfPalette.gray4, bg = onehalfPalette.backgroundDark, gui = "bold" },
+		-- 		b = { fg = onehalfPalette.gray4, bg = onehalfPalette.backgroundDark },
+		-- 		c = { fg = onehalfPalette.gray4, bg = onehalfPalette.backgroundDark },
+		-- 	},
 
-
-
-		}
+		-- }
 
 
 		--[[
@@ -177,10 +189,10 @@ return {
 			sources = { "nvim_diagnostic" },
 			symbols = { error = " ", warn = " ", info = " ", hint = " " },
 			diagnostics_color = {
-				error = { fg = onehalfPalette.redDark },
-				warn = { fg = onehalfPalette.yellowDark },
-				info = { fg = onehalfPalette.magentaDark },
-				hint = { fg = onehalfPalette.cyanDark },
+				error = { fg = onehalfPalette.red },
+				warn = { fg = onehalfPalette.yellow },
+				info = { fg = onehalfPalette.magenta },
+				hint = { fg = onehalfPalette.cyan },
 			},
 			color = { gui = "italic,bold" },
 			separator = { left = "" },

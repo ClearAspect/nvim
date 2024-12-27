@@ -32,17 +32,17 @@ return {
 			require('onedark').load()
 		end
 	},
+	-- {
+	-- 	'sonph/onehalf',
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function(plugin)
+	-- 		vim.opt.rtp:append(plugin.dir .. "/vim")
+	-- 	end
+	-- },
 	{
-		'sonph/onehalf',
-		lazy = false,
-		priority = 1000,
-		config = function(plugin)
-			vim.opt.rtp:append(plugin.dir .. "/vim")
-		end
-	},
-	{
-		-- 'clearaspect/onehalfdark',
-		dir = '~/Documents/GitHub/OneHalf/onehalftest/',
+		'clearaspect/onehalfdark',
+		-- dir = '~/Documents/GitHub/OneHalf/onehalf/',
 		lazy = false,
 		priority = 1000,
 	},

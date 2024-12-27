@@ -17,14 +17,14 @@ require("lazy").setup({
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "onehalftest" } },
+	install = { colorscheme = { "onehalfdark" } },
 	-- automatically check for plugin updates
 	checker = { enabled = true, notify = false },
 	change_detection = { enabled = true, notify = false },
 })
 
 -- vim.cmd("colorscheme catppuccin-mocha")
-vim.cmd("colorscheme onehalftest")
+vim.cmd("colorscheme onehalfdark")
 -- vim.cmd("Copilot disable")
 
 vim.lsp.set_log_level("debug")

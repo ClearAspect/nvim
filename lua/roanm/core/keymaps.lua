@@ -42,34 +42,41 @@ vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 -- vim.keymap.set("n", "<leader>fv", "<cmd>Ex<cr>", { desc = "Open Netrw" })
 vim.keymap.set("n", "<leader>fv", "<cmd>Oil<cr>", { desc = "Open Oil" })
 
---Telescope
+
+
+--Fzf
 vim.keymap.set("n", "<leader>ff", function()
-	require("telescope.builtin").find_files({
+	require("fzf-lua").files({
 		cwd = require("oil").get_current_dir(),
 	})
 end, { desc = "Fuzzy Files" })
+
 vim.keymap.set("n", "<leader>fg", function()
-	require("telescope.builtin").live_grep({
-		cwd = require("oil").get_current_dir(),
+	require("fzf-lua").grep({
+		-- cwd = require("oil").get_current_dir(),
 	})
 end, { desc = "Fuzzy Grep" })
-vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Fuzzy Buffers" })
-vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Fuzzy Help" })
-vim.keymap.set("n", "<leader>fc", "<cmd>Telescope commands<cr>", { desc = "Fuzzy Commands" })
-vim.keymap.set("n", "<leader>fr", "<cmd>Telescope frecency<cr>", { desc = "Fuzzy Frequent Files" })
 
-vim.keymap.set(
-	"n",
-	"<leader>fl",
-	"<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>",
-	{ desc = "Fuzzy Buffer" }
-)
+vim.keymap.set("n", "<leader>fb", function()
+	require("fzf-lua").buffers()
+end, { desc = "Fuzzy Buffers" })
+
+-- vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Fuzzy Help" })
+-- vim.keymap.set("n", "<leader>fc", "<cmd>Telescope commands<cr>", { desc = "Fuzzy Commands" })
+vim.keymap.set("n", "<leader>fr", function()
+	require("fzf-lua").oldfiles()
+end, { desc = "Fuzzy Frequent Files" })
+
+vim.keymap.set("n", "<leader>fl", function()
+	require("fzf-lua").blines()
+end, { desc = "Fuzzy Buffer" })
+
 vim.keymap.set("n", "<leader>fs", function()
-	require("telescope.builtin").lsp_document_symbols()
+	require("fzf-lua").lsp_document_symbols()
 end, { desc = "Fuzzy Document Symbols" })
--- { symbols = { "function", "method", "class" } }
+
 vim.keymap.set("n", "<leader>fe", function()
-	require("telescope.builtin").diagnostics()
+	require("fzf-lua").diagnostics_document()
 end, { desc = "Fuzzy Errors" })
 
 -- ╔═════════════════════════════════════════════════╗

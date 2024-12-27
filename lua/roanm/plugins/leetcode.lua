@@ -8,7 +8,7 @@ return {
 		"MunifTanjim/nui.nvim",
 
 		-- optional
-		"nvim-treesitter/nvim-treesitter",
+		"ibhagwan/fzf-lua",
 		"rcarriga/nvim-notify",
 		"nvim-tree/nvim-web-devicons",
 	},
