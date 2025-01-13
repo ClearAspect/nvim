@@ -41,8 +41,8 @@ return {
 	-- 	end
 	-- },
 	{
-		'clearaspect/onehalfdark',
-		-- dir = '~/Documents/GitHub/OneHalf/onehalf/',
+		-- 'clearaspect/onehalfdark',
+		dir = '~/Documents/GitHub/OneHalf/onehalf/',
 		lazy = false,
 		priority = 1000,
 	},

@@ -60,8 +60,8 @@ return {
 						enable = true,
 						lookahead = true,
 						keymaps = {
-							["am"] = "@function.outer",
-							["im"] = "@function.inner",
+							["af"] = "@function.outer",
+							["if"] = "@function.inner",
 							["ac"] = "@class.outer",
 							["ic"] = "@class.inner",
 						},

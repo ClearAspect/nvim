@@ -12,11 +12,12 @@ __updated__ = "{{_lua:os.date("%Y-%m-%d")_}}"
 
 # Constants
 
+
 def func():
     """
     -------------------------------------------------------
     description
-    Use: 
+    Use:
     -------------------------------------------------------
     Parameters:
         name - description (type)

@@ -115,21 +115,34 @@ vim.keymap.set("n", "<leader>gdc", "<cmd>DiffviewClose<cr>", { desc = "Close Dif
 -- ║ CopilotChat                                     ║
 -- ╚═════════════════════════════════════════════════╝
 
-vim.keymap.set("n", "<leader>cco", "<cmd>CopilotChatOpen<cr>", { desc = "CopilotChat - Open" })
-vim.keymap.set("n", "<leader>ccf", "<cmd>CopilotChatFix<cr>", { desc = "CopilotChat - Fix Error" })
-vim.keymap.set("n", "<leader>cce", "<cmd>CopilotChatExplain<cr>", { desc = "CopilotChat - Explain code" })
-vim.keymap.set("n", "<leader>ccf", "<cmd>CopilotChatCode<cr>", { desc = "CopilotChat - Review Code" })
+-- vim.keymap.set("n", "<leader>cco", "<cmd>CopilotChatOpen<cr>", { desc = "CopilotChat - Open" })
+-- vim.keymap.set("n", "<leader>ccf", "<cmd>CopilotChatFix<cr>", { desc = "CopilotChat - Fix Error" })
+-- vim.keymap.set("n", "<leader>cce", "<cmd>CopilotChatExplain<cr>", { desc = "CopilotChat - Explain code" })
+-- vim.keymap.set("n", "<leader>ccf", "<cmd>CopilotChatCode<cr>", { desc = "CopilotChat - Review Code" })
 
 
-vim.keymap.set("n", "<leader>ccq", function()
-		local input = vim.fn.input("Quick Chat: ")
-		if input ~= "" then
-			require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
-		end
-	end,
-	{ desc = "CopilotChat - Quick chat" })
+-- vim.keymap.set("n", "<leader>ccq", function()
+-- 		local input = vim.fn.input("Quick Chat: ")
+-- 		if input ~= "" then
+-- 			require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+-- 		end
+-- 	end,
+-- 	{ desc = "CopilotChat - Quick chat" })
 
 
 
--- copilot
--- vim.keymap.set("i", "<C-L>", ":lua require('copilot.suggestion').accept_word()")
+-- ╔═════════════════════════════════════════════════╗
+-- ║ CopilotChat                                     ║
+-- ╚═════════════════════════════════════════════════╝
+-- load the session for the current directory
+vim.keymap.set("n", "<leader>qs", function() require("persistence").load() end, { desc = "Load directory session" })
+
+-- select a session to load
+vim.keymap.set("n", "<leader>qS", function() require("persistence").select() end, { desc = "Select session to load" })
+
+-- load the last session
+vim.keymap.set("n", "<leader>ql", function() require("persistence").load({ last = true }) end,
+	{ desc = "Load last session" })
+
+-- stop Persistence => session won't be saved on exit
+vim.keymap.set("n", "<leader>qd", function() require("persistence").stop() end, { desc = "Stop session saving" })

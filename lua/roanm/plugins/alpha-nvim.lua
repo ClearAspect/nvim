@@ -77,7 +77,7 @@ return {
 			val = header[1],
 			opts = {
 				position = "center",
-				hl = "Type",
+				hl = "Question",
 			},
 		}
 
@@ -123,7 +123,7 @@ return {
 				{
 					type = "text",
 					val = "  " .. os.date("%A, %B %d, %Y"),
-					opts = { hl = "SpecialComment", position = "center" },
+					opts = { hl = "Comment", position = "center" },
 				},
 				{
 					type = "text",
@@ -134,12 +134,12 @@ return {
 						.. "/"
 						.. require("lazy").stats().count
 						.. " Loaded",
-					opts = { hl = "SpecialComment", position = "center" },
+					opts = { hl = "Comment", position = "center" },
 				},
 				{
 					type = "text",
 					val = (math.floor(require("lazy").stats().startuptime * 100 + 0.5) / 100) .. "ms",
-					opts = { hl = "SpecialComment", position = "center" },
+					opts = { hl = "Comment", position = "center" },
 				},
 			}
 			return val

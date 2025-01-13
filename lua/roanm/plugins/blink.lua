@@ -34,7 +34,7 @@ return {
 			accept = { auto_brackets = { enabled = false }, },
 
 			-- Insert completion item on selection, don't select by default
-			list = { selection = 'auto_insert' },
+			list = { selection = { preselect = true, auto_insert = true } },
 			-- or set per mode
 			-- list = { selection = function(ctx) return ctx.mode == 'cmdline' and 'auto_insert' or 'preselect' end },
 
@@ -147,6 +147,7 @@ return {
 
 			['<C-p>'] = { 'select_prev', 'fallback' },
 			['<C-n>'] = { 'select_next', 'fallback' },
+
 
 			['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
 			['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
