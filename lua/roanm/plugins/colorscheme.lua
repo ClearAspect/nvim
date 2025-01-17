@@ -1,4 +1,11 @@
 return {
+	-- My Version of OneHalf
+	{
+		-- 'clearaspect/onehalf',
+		dir = '~/Documents/GitHub/OneHalf/onehalf/',
+		lazy = false,
+		priority = 1000,
+	},
 	{
 		"catppuccin/nvim",
 		config = function()
@@ -19,41 +26,5 @@ return {
 	{
 		"shaunsingh/nord.nvim",
 
-	},
-	{
-		'navarasu/onedark.nvim',
-		lazy = false,
-		priority = 1000,
-		config = function()
-			local onedark = require('onedark')
-			onedark.setup {
-				style = 'darker'
-			}
-			require('onedark').load()
-		end
-	},
-	-- {
-	-- 	'sonph/onehalf',
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function(plugin)
-	-- 		vim.opt.rtp:append(plugin.dir .. "/vim")
-	-- 	end
-	-- },
-	{
-		-- 'clearaspect/onehalfdark',
-		dir = '~/Documents/GitHub/OneHalf/onehalf/',
-		lazy = false,
-		priority = 1000,
-	},
-	{
-		'olivercederborg/poimandres.nvim',
-		config = function()
-			require('poimandres').setup {
-				-- leave this setup function empty for default config
-				-- or refer to the configuration section
-				-- for configuration options
-			}
-		end,
 	},
 }

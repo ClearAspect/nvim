@@ -37,14 +37,14 @@ vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 
 -- ╔═════════════════════════════════════════════════╗
--- ║ Find                                            ║
+-- ║ Find / Files                                    ║
 -- ╚═════════════════════════════════════════════════╝
+
 -- vim.keymap.set("n", "<leader>fv", "<cmd>Ex<cr>", { desc = "Open Netrw" })
 vim.keymap.set("n", "<leader>fv", "<cmd>Oil<cr>", { desc = "Open Oil" })
 
 
-
---Fzf
+-- Fzf
 vim.keymap.set("n", "<leader>ff", function()
 	require("fzf-lua").files({
 		cwd = require("oil").get_current_dir(),
@@ -78,6 +78,13 @@ end, { desc = "Fuzzy Document Symbols" })
 vim.keymap.set("n", "<leader>fe", function()
 	require("fzf-lua").diagnostics_document()
 end, { desc = "Fuzzy Errors" })
+
+
+-- Neo-tree
+vim.keymap.set("n", "<leader>ft", "<cmd>Neotree<cr>", { desc = "Toggle Neo-tree" })
+
+
+
 
 -- ╔═════════════════════════════════════════════════╗
 -- ║ Code                                            ║
