@@ -1,7 +1,7 @@
 return {
 	{
 		"zbirenbaum/copilot.lua",
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "VeryLazy" },
 		lazy = true,
 		config = function()
 			local copilot = require("copilot")

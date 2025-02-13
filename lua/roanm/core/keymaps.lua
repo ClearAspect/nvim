@@ -47,7 +47,7 @@ vim.keymap.set("n", "<leader>fv", "<cmd>Oil<cr>", { desc = "Open Oil" })
 -- Fzf
 vim.keymap.set("n", "<leader>ff", function()
 	require("fzf-lua").files({
-		cwd = require("oil").get_current_dir(),
+		-- cwd = require("oil").get_current_dir(),
 	})
 end, { desc = "Fuzzy Files" })
 
@@ -81,7 +81,7 @@ end, { desc = "Fuzzy Errors" })
 
 
 -- Neo-tree
-vim.keymap.set("n", "<leader>ft", "<cmd>Neotree<cr>", { desc = "Toggle Neo-tree" })
+vim.keymap.set("n", "<leader>ft", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neo-tree" })
 
 
 

@@ -1,6 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "VeryLazy" },
 	dependencies = {
 		-- "hrsh7th/cmp-nvim-lsp",
 		'saghen/blink.cmp'
@@ -11,12 +11,18 @@ return {
 		local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 
+		-- Inlay Hints
+		vim.keymap.set("n", '<leader>i',
+			function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 }) end,
+			{ desc = "Toggle inlay hints" })
+
 		-- Global mappings.
 		-- See `:help vim.diagnostic.*` for documentation on any of the below functions
 		vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
 		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 		vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 		-- vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
+
 
 		-- Use LspAttach autocommand to only map the following keys
 		-- after the language server attaches to the current buffer
@@ -79,13 +85,16 @@ return {
 				},
 			},
 		})
+		lspconfig.nil_ls.setup({
+			capabilities = capabilities,
+		})
 		lspconfig.ruff.setup({
 			capabilities = capabilities,
 		})
 		lspconfig.rust_analyzer.setup({
 			capabilities = capabilities,
 		})
-		lspconfig.nil_ls.setup({
+		lspconfig.sqlls.setup({
 			capabilities = capabilities,
 		})
 		lspconfig.ts_ls.setup({

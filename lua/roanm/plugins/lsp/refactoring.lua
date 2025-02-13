@@ -4,7 +4,8 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
 	},
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "VeryLazy" },
+	lazy = true,
 	config = function()
 		require("refactoring").setup()
 	end,

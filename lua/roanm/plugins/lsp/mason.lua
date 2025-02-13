@@ -32,6 +32,7 @@ return {
 				"nil_ls",
 				"ruff",
 				"rust_analyzer",
+				"sqlls",
 				"ts_ls",
 				"vimls",
 				"zls",

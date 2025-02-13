@@ -1,7 +1,8 @@
 return {
 	"goolord/alpha-nvim",
 	requires = { "nvim-tree/nvim-web-devicons" },
-	event = "VimEnter",
+	event = { "VimEnter" },
+	lazy = true,
 	config = function()
 		local dashboard = require("alpha.themes.dashboard")
 
@@ -77,7 +78,7 @@ return {
 			val = header[1],
 			opts = {
 				position = "center",
-				hl = "Question",
+				hl = "Function",
 			},
 		}
 
@@ -128,12 +129,12 @@ return {
 				{
 					type = "text",
 					val = "  "
-						.. string.sub(vim.fn.system("nvim --version | head -n 1"), 1, -2)
-						.. "    "
-						.. require("lazy").stats().loaded
-						.. "/"
-						.. require("lazy").stats().count
-						.. " Loaded",
+							.. string.sub(vim.fn.system("nvim --version | head -n 1"), 1, -2)
+							.. "    "
+							.. require("lazy").stats().loaded
+							.. "/"
+							.. require("lazy").stats().count
+							.. " Loaded",
 					opts = { hl = "Comment", position = "center" },
 				},
 				{
@@ -160,7 +161,7 @@ return {
 			{ type = "padding", val = 3 },
 			header,
 			{ type = "padding", val = 3 },
-			get_mru(7),
+			get_mru(10),
 			{ type = "padding", val = 2 },
 			buttons,
 			footer,

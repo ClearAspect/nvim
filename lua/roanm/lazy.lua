@@ -14,6 +14,7 @@ require("lazy").setup({
 		{ import = "roanm.plugins.lsp" },
 		{ import = "roanm.plugins.gpt" },
 		{ import = "roanm.plugins.git" },
+		{ import = "roanm.plugins.bloat" },
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.

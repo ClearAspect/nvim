@@ -2,6 +2,8 @@ return {
 	"akinsho/bufferline.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = "nvim-tree/nvim-web-devicons",
+	lazy = true,
+
 	config = function()
 		local bufferline = require("bufferline")
 
@@ -21,7 +23,7 @@ return {
 
 				offsets = {
 					{
-						filetype = "NvimTree",
+						filetype = "neo-tree",
 						text = "Files",
 						text_align = "center",
 					},

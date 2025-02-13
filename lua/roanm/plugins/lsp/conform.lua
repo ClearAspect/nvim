@@ -1,6 +1,6 @@
 return {
 	"stevearc/conform.nvim",
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "VeryLazy" },
 	opts = {},
 	config = function()
 		local conform = require("conform")
@@ -28,11 +28,12 @@ return {
 				nix = { "alejandra" },
 				zig = { "zig fmt" },
 				toml = { "taplo" },
+				sql = { "sqlfmt" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
 				async = false,
-				timeout_ms = 1000,
+				timeout_ms = 10000,
 			},
 		})
 		vim.keymap.set({ "n", "v" }, "<leader>f", function()

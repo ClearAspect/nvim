@@ -1,6 +1,8 @@
 return {
 	'saghen/blink.cmp',
 	-- optional: provides snippets for the snippet source
+	event = "VeryLazy",
+	lazy = true,
 	dependencies = {
 		'rafamadriz/friendly-snippets',
 		'L3MON4D3/LuaSnip',
@@ -19,8 +21,8 @@ return {
 		-- Disable for some filetypes
 		enabled = function()
 			return not vim.tbl_contains({ "test", "test" }, vim.bo.filetype)
-				and vim.bo.buftype ~= "prompt"
-				and vim.b.completion ~= false
+					and vim.bo.buftype ~= "prompt"
+					and vim.b.completion ~= false
 		end,
 
 		completion = {
@@ -50,14 +52,14 @@ return {
 					},
 				},
 
-				border = 'single',
+				-- border = 'rounded',
 			},
 
 			-- Show documentation when selecting a completion item
 			documentation = {
 				auto_show = true,
 				auto_show_delay_ms = 500,
-				window = { border = 'single' }
+				-- window = { border = 'rounded' }
 			},
 
 			-- Display a preview of the selected item on the current line
@@ -74,7 +76,7 @@ return {
 		-- Experimental signature help support
 		signature = {
 			enabled = true,
-			window = { border = 'single' },
+			-- window = { border = 'rounded' },
 		},
 
 		appearance = {

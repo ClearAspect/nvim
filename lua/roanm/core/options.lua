@@ -1,7 +1,7 @@
 -- Tab / Indentation
 
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.smartindent = true
 vim.opt.expandtab = false
 vim.opt.wrap = false
@@ -40,20 +40,28 @@ vim.opt.splitkeep = "cursor"
 -- ║ AutoCommands 									 ║
 -- ╚═════════════════════════════════════════════════╝
 
+-- Set initial diagnostic configuration
 vim.diagnostic.config({
-	virtual_text = false,
-	virtual_lines = true,
+	virtual_text = true,
+	virtual_lines = false,
 })
 
-
--- Disable virtual text since it's redundant due to lsp_lines.nvim
-vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
+-- Switch between virtual_text and virtual_lines based on cursor position
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorMoved" }, {
 	callback = function()
-		local winid = vim.api.nvim_get_current_win()
-		local floating = vim.api.nvim_win_get_config(winid).relative ~= ""
-		vim.diagnostic.config({
-			virtual_text = floating,
-			virtual_lines = not floating,
-		})
+		local current_line = vim.api.nvim_win_get_cursor(0)[1]
+		local diagnostics = vim.diagnostic.get(0, { lnum = current_line - 1 })
+
+		if #diagnostics > 0 then
+			vim.diagnostic.config({
+				virtual_text = false,
+				virtual_lines = { only_current_line = true },
+			})
+		else
+			vim.diagnostic.config({
+				virtual_text = true,
+				virtual_lines = false,
+			})
+		end
 	end,
 })
