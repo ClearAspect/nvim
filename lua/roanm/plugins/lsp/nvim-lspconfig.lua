@@ -85,7 +85,7 @@ return {
 				},
 			},
 		})
-		lspconfig.nil_ls.setup({
+		lspconfig.nixd.setup({
 			capabilities = capabilities,
 		})
 		lspconfig.ruff.setup({
