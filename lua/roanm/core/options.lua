@@ -1,3 +1,7 @@
+-- ╔═════════════════════════════════════════════════╗
+-- ║ Configuration Settings         								 ║
+-- ╚═════════════════════════════════════════════════╝
+
 -- Tab / Indentation
 
 vim.opt.tabstop = 2
@@ -37,13 +41,25 @@ vim.opt.splitright = true
 vim.opt.splitkeep = "cursor"
 
 -- ╔═════════════════════════════════════════════════╗
--- ║ AutoCommands 									 ║
+-- ║ AutoCommands 	                								 ║
 -- ╚═════════════════════════════════════════════════╝
 
+
 -- Set initial diagnostic configuration
+-- Global variable to track current cursor line
+vim.g.current_diagnostic_line = -1
+
 vim.diagnostic.config({
-	virtual_text = true,
-	virtual_lines = false,
+	virtual_text = {
+		format = function(diagnostic)
+			local line = diagnostic.lnum + 1
+			if line == vim.g.current_diagnostic_line then
+				return nil -- Don't show virtual text for current line
+			end
+			return diagnostic.message
+		end
+	},
+	virtual_lines = { only_current_line = true },
 })
 
 -- Switch between virtual_text and virtual_lines based on cursor position
@@ -53,15 +69,10 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorMoved" }, {
 		local diagnostics = vim.diagnostic.get(0, { lnum = current_line - 1 })
 
 		if #diagnostics > 0 then
-			vim.diagnostic.config({
-				virtual_text = false,
-				virtual_lines = { only_current_line = true },
-			})
+			vim.g.current_diagnostic_line = current_line
 		else
-			vim.diagnostic.config({
-				virtual_text = true,
-				virtual_lines = false,
-			})
+			vim.g.current_diagnostic_line = -1
 		end
+		vim.diagnostic.show() -- Refresh diagnostics display
 	end,
 })

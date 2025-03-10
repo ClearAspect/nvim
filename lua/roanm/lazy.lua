@@ -28,7 +28,7 @@ require("lazy").setup({
 vim.cmd("colorscheme onehalfdark")
 -- vim.cmd("Copilot disable")
 
--- vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level("off")
 
 -- for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
 -- 	vim.api.nvim_set_hl(0, group, {})

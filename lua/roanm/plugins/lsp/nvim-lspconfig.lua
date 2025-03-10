@@ -54,6 +54,9 @@ return {
 
 		-- LSP SERVERS
 
+		lspconfig.asm_lsp.setup({
+			capabilities = capabilities,
+		})
 		lspconfig.biome.setup({
 			capabilities = capabilities,
 		})
