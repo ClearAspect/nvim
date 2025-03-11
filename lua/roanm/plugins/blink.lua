@@ -59,7 +59,7 @@ return {
 			documentation = {
 				auto_show = true,
 				auto_show_delay_ms = 500,
-				-- window = { border = 'rounded' }
+				window = { border = 'rounded' }
 			},
 
 			-- Display a preview of the selected item on the current line
@@ -76,7 +76,7 @@ return {
 		-- Experimental signature help support
 		signature = {
 			enabled = true,
-			-- window = { border = 'rounded' },
+			window = { border = 'rounded' },
 		},
 
 		appearance = {
@@ -142,7 +142,7 @@ return {
 		-- your own keymap.
 		keymap = {
 			preset = 'default',
-			['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+			['<M-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
 			['<C-e>'] = { 'hide' },
 			['<C-y>'] = { 'accept', 'fallback' },
 
