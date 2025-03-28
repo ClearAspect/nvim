@@ -4,11 +4,17 @@
 
 -- Tab / Indentation
 
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
 vim.opt.expandtab = false
 vim.opt.wrap = false
+
+-- Folds
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 16
 
 -- Search
 
@@ -39,6 +45,9 @@ vim.opt.backspace = { "start", "eol", "indent" }
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.splitkeep = "cursor"
+
+-- Language
+vim.g.c_syntax_for_h = true
 
 -- ╔═════════════════════════════════════════════════╗
 -- ║ AutoCommands 	                								 ║
