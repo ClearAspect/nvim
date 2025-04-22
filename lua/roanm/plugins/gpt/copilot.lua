@@ -7,7 +7,7 @@ return {
 			local copilot = require("copilot")
 			copilot.setup({
 				panel = {
-					enabled = true,
+					enabled = false,
 					auto_refresh = true,
 					keymap = {
 						jump_prev = "[[",
@@ -22,7 +22,7 @@ return {
 					},
 				},
 				suggestion = {
-					enabled = true,
+					enabled = false,
 					auto_trigger = true,
 					hide_during_completion = true,
 					debounce = 75,
@@ -37,8 +37,8 @@ return {
 				},
 				filetypes = {
 					yaml = false,
-					markdown = false,
-					help = false,
+					markdown = true,
+					help = true,
 					gitcommit = false,
 					gitrebase = false,
 					hgcommit = false,
@@ -52,19 +52,15 @@ return {
 			})
 		end,
 	},
-	-- {
-	-- 	"CopilotC-Nvim/CopilotChat.nvim",
-	-- 	event = { "BufReadPre", "BufNewFile" },
-	-- 	branch = "main",
-	-- 	dependencies = {
-	-- 		"zbirenbaum/copilot.lua",
-	-- 		"nvim-lua/plenary.nvim", -- for curl, log wrapper
-	-- 	},
-	-- 	opts = {
-	-- 		debug = false,      -- Enable debugging
-	-- 		-- See Configuration section for rest
-	-- 		model = 'claude-3.5-sonnet', -- GPT model to use, see ':CopilotChatModels' for available models
-	-- 	},
-	-- 	-- See Commands section for default commands if you want to lazy load on them
-	-- },
+
+	{
+		"copilotlsp-nvim/copilot-lsp",
+		init = function()
+			vim.g.copilot_nes_debounce = 500
+			vim.lsp.enable("copilot")
+			vim.keymap.set("n", "<Tab>", function()
+				require("copilot-lsp.nes").apply_pending_nes()
+			end)
+		end,
+	}
 }

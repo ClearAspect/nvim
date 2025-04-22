@@ -11,7 +11,7 @@ return {
 			endpoint = "https://api.githubcopilot.com",
 			-- model = "o1",
 			-- claude can use with avante
-			model = "claude-3.5-sonnet",
+			model = "claude-3.7-sonnet",
 		},
 		behaviour = {
 			auto_suggestions = false, -- Experimental stage

@@ -6,6 +6,7 @@ return {
 	dependencies = {
 		'rafamadriz/friendly-snippets',
 		'L3MON4D3/LuaSnip',
+		'fang2hou/blink-copilot'
 	},
 
 	-- use a release tag to download pre-built binaries
@@ -70,7 +71,16 @@ return {
 
 		sources = {
 			-- Remove 'buffer' if you don't want text completions, by default it's only enabled when LSP returns no items
-			default = { 'lsp', 'path', 'snippets', 'buffer' },
+			default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
+
+			providers = {
+				copilot = {
+					name = "copilot",
+					module = "blink-copilot",
+					score_offset = 100,
+					async = true,
+				},
+			},
 			-- Disable cmdline completions
 			-- cmdline = {},
 		},
@@ -156,7 +166,22 @@ return {
 			['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
 			['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
 
-			['<Tab>'] = { 'snippet_forward', 'fallback' },
+			-- ['<Tab>'] = { 'snippet_forward', 'fallback' },
+			['<Tab>'] = {
+				function(cmp)
+					if vim.b[vim.api.nvim_get_current_buf()].nes_state then
+						cmp.hide()
+						return require("copilot-lsp.nes").apply_pending_nes()
+					end
+					if cmp.snippet_active() then
+						return cmp.accept()
+					else
+						return cmp.select_and_accept()
+					end
+				end,
+				"snippet_forward",
+				"fallback",
+			},
 			['<S-Tab>'] = { 'snippet_backward', 'fallback' },
 		},
 

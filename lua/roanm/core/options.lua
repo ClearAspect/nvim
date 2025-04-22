@@ -49,9 +49,26 @@ vim.opt.splitkeep = "cursor"
 -- Language
 vim.g.c_syntax_for_h = true
 
--- ╔═════════════════════════════════════════════════╗
--- ║ AutoCommands 	                								 ║
--- ╚═════════════════════════════════════════════════╝
+-- Git Diff
+
+vim.opt.fillchars = {
+	diff = '/',
+}
+
+
+vim.opt.diffopt = {
+	'internal',
+	'filler',
+	'closeoff',
+	'context:12',
+	'algorithm:histogram',
+	'linematch:200',
+	'indent-heuristic',
+}
+
+-- ╔══════════════════╗
+-- ║   AutoCommands   ║
+-- ╚══════════════════╝
 
 
 -- Set initial diagnostic configuration

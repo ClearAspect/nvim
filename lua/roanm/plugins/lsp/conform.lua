@@ -6,32 +6,33 @@ return {
 		local conform = require("conform")
 
 		conform.setup({
+			-- Conform will run multiple formatters sequentially
+			-- Use a sub-list to run only the first available formatter
 			formatters_by_ft = {
+				asm = { "asmfmt" },
+				c = { "clang-format" },
+				cpp = { "clang-format" },
+				css = { "prettier" },
+				go = { "gofmt" },
+				java = { "clang-format" },
+				javascript = { "prettier" },
+				javascriptreact = { "prettier" },
+				json = { "biome" },
+				jsonc = { "biome" },
 				lua = { "stylua" },
-				-- Conform will run multiple formatters sequentially
+				nix = { "alejandra" },
 				python = { "ruff_format" },
-				-- Use a sub-list to run only the first available formatter
+				rust = { "rustfmt" },
+				s = { "asmfmt" },
+				sql = { "sqlfmt" },
+				toml = { "taplo" },
+				typescript = { "prettier" },
+				typescriptreact = { "prettier" },
+				zig = { "zig fmt" },
 				-- javascript = { "biome" },
 				-- typescript = { "biome" },
 				-- javascriptreact = { "biome" },
 				-- typescriptreact = { "biome" },
-				javascript = { "prettier" },
-				typescript = { "prettier" },
-				javascriptreact = { "prettier" },
-				typescriptreact = { "prettier" },
-				json = { "biome" },
-				jsonc = { "biome" },
-				cpp = { "clang-format" },
-				c = { "clang-format" },
-				java = { "clang-format" },
-				css = { "prettier" },
-				nix = { "alejandra" },
-				zig = { "zig fmt" },
-				toml = { "taplo" },
-				sql = { "sqlfmt" },
-				s = { "asmfmt" },
-				asm = { "asmfmt" },
-				rust = { "rustfmt" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
