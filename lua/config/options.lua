@@ -52,7 +52,7 @@ vim.g.c_syntax_for_h = true
 -- Git Diff
 
 vim.opt.fillchars = {
-	diff = '/',
+	diff = '∕',
 }
 
 
@@ -69,36 +69,3 @@ vim.opt.diffopt = {
 -- ╔══════════════════╗
 -- ║   AutoCommands   ║
 -- ╚══════════════════╝
-
-
--- Set initial diagnostic configuration
--- Global variable to track current cursor line
-vim.g.current_diagnostic_line = -1
-
-vim.diagnostic.config({
-	virtual_text = {
-		format = function(diagnostic)
-			local line = diagnostic.lnum + 1
-			if line == vim.g.current_diagnostic_line then
-				return nil -- Don't show virtual text for current line
-			end
-			return diagnostic.message
-		end
-	},
-	virtual_lines = { only_current_line = true },
-})
-
--- Switch between virtual_text and virtual_lines based on cursor position
-vim.api.nvim_create_autocmd({ "CursorHold", "CursorMoved" }, {
-	callback = function()
-		local current_line = vim.api.nvim_win_get_cursor(0)[1]
-		local diagnostics = vim.diagnostic.get(0, { lnum = current_line - 1 })
-
-		if #diagnostics > 0 then
-			vim.g.current_diagnostic_line = current_line
-		else
-			vim.g.current_diagnostic_line = -1
-		end
-		vim.diagnostic.show() -- Refresh diagnostics display
-	end,
-})

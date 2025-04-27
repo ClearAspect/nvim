@@ -8,7 +8,7 @@ return {
 		config = function()
 			local onehalf = require('onehalf')
 			onehalf.setup({
-				transparency = false,
+				transparency = true,
 				terminal_colors = true, -- Apply the theme to neovim terminal windows
 				-- Style to be applied to different syntax groups
 				-- Value is any valid attr-list value for `:help nvim_set_hl`

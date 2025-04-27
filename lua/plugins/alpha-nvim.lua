@@ -129,12 +129,12 @@ return {
 				{
 					type = "text",
 					val = "  "
-							.. string.sub(vim.fn.system("nvim --version | head -n 1"), 1, -2)
-							.. "    "
-							.. require("lazy").stats().loaded
-							.. "/"
-							.. require("lazy").stats().count
-							.. " Loaded",
+						.. string.sub(vim.fn.system("nvim --version | head -n 1"), 1, -2)
+						.. "    "
+						.. require("lazy").stats().loaded
+						.. "/"
+						.. require("lazy").stats().count
+						.. " Loaded",
 					opts = { hl = "Comment", position = "center" },
 				},
 				{

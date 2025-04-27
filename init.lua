@@ -1,3 +1,3 @@
 vim.hl = vim.highlight
-require("roanm.core")
-require("roanm.lazy")
+require("config.init")
+require("config.lazy")
