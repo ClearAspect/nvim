@@ -41,6 +41,7 @@ return {
 				[[ZZZzz /,`.-'`'    -.  ;-;;,_	]],
 				[[     |,4-  ) )-,_. ,\ (  `'-'	]],
 				[[    '---''(_/--'  `-'\_)		]],
+				[[          Temet Nosce         ]],
 			},
 			{
 				[[                               __                ]],
@@ -158,11 +159,11 @@ return {
 		})
 
 		theme.config.layout = {
-			{ type = "padding", val = 3 },
-			header,
-			{ type = "padding", val = 3 },
-			get_mru(10),
 			{ type = "padding", val = 2 },
+			header,
+			{ type = "padding", val = 2 },
+			get_mru(10),
+			{ type = "padding", val = 1 },
 			buttons,
 			footer,
 		}

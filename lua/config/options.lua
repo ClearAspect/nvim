@@ -52,19 +52,21 @@ vim.g.c_syntax_for_h = true
 -- Git Diff
 
 vim.opt.fillchars = {
-	diff = '∕',
+	diff = '╱',
 }
 
 
-vim.opt.diffopt = {
-	'internal',
-	'filler',
-	'closeoff',
-	'context:12',
-	'algorithm:histogram',
-	'linematch:200',
-	'indent-heuristic',
-}
+
+
+-- vim.opt.diffopt = {
+-- 	'internal',
+-- 	'filler',
+-- 	'closeoff',
+-- 	'context:12',
+-- 	'algorithm:histogram',
+-- 	'linematch:200',
+-- 	'indent-heuristic',
+-- }
 
 -- ╔══════════════════╗
 -- ║   AutoCommands   ║
