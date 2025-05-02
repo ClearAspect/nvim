@@ -56,17 +56,17 @@ vim.opt.fillchars = {
 }
 
 
-
-
--- vim.opt.diffopt = {
--- 	'internal',
--- 	'filler',
--- 	'closeoff',
--- 	'context:12',
--- 	'algorithm:histogram',
--- 	'linematch:200',
--- 	'indent-heuristic',
--- }
+vim.opt.diffopt = {
+	'algorithm:histogram',
+	'internal',
+	'indent-heuristic',
+	'filler',
+	'closeoff',
+	'iwhite',
+	"vertical",
+	'linematch:100',
+	'context:12',
+}
 
 -- ╔══════════════════╗
 -- ║   AutoCommands   ║

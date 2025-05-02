@@ -1,14 +1,14 @@
 return {
 	-- My Version of OneHalf
 	{
-		'clearaspect/onehalf',
-		-- dir = '~/Documents/GitHub/onehalf/',
+		-- 'clearaspect/onehalf',
+		dir = '~/Documents/GitHub/onehalf/',
 		lazy = false,
 		priority = 1000,
 		config = function()
 			local onehalf = require('onehalf')
 			onehalf.setup({
-				transparency = true,
+				transparency = false,
 				terminal_colors = true, -- Apply the theme to neovim terminal windows
 				-- Style to be applied to different syntax groups
 				-- Value is any valid attr-list value for `:help nvim_set_hl`
@@ -28,6 +28,9 @@ return {
 				},
 			})
 		end
+	},
+	{
+		"nyoom-engineering/oxocarbon.nvim",
 	},
 	{
 		"folke/tokyonight.nvim",
