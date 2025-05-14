@@ -1,12 +1,12 @@
 return {
 	-- My Version of OneHalf
 	{
-		-- 'clearaspect/onehalf',
-		dir = '~/Documents/GitHub/onehalf/',
+		"clearaspect/onehalf",
+		-- dir = "~/Documents/GitHub/onehalf/",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			local onehalf = require('onehalf')
+			local onehalf = require("onehalf")
 			onehalf.setup({
 				transparency = false,
 				terminal_colors = true, -- Apply the theme to neovim terminal windows
@@ -27,7 +27,7 @@ return {
 					operators = {},
 				},
 			})
-		end
+		end,
 	},
 	{
 		"nyoom-engineering/oxocarbon.nvim",
@@ -57,6 +57,5 @@ return {
 	-- },
 	{
 		"shaunsingh/nord.nvim",
-
 	},
 }

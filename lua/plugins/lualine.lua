@@ -13,44 +13,43 @@ return {
 
 		onehalfdark.normal = {
 			a = { bg = C.gutter_fg, fg = C.bg, gui = "bold" },
-			b = { bg = C.non_text, fg = C.gutter_fg },
-			c = { bg = C.non_text, fg = C.fg },
+			b = { bg = C.bg, fg = C.gutter_fg },
+			c = { bg = C.bg, fg = C.fg },
 		}
 
 		onehalfdark.insert = {
 			a = { bg = C.gutter_fg, fg = C.bg, gui = "bold" },
-			b = { bg = C.non_text, fg = C.gutter_fg },
-			c = { bg = C.non_text, fg = C.fg },
+			b = { bg = C.bg, fg = C.gutter_fg },
+			c = { bg = C.bg, fg = C.fg },
 		}
 
 		onehalfdark.visual = {
 			a = { bg = C.gutter_fg, fg = C.bg, gui = "bold" },
-			b = { bg = C.non_text, fg = C.gutter_fg },
-			c = { bg = C.non_text, fg = C.fg },
+			b = { bg = C.bg, fg = C.gutter_fg },
+			c = { bg = C.bg, fg = C.fg },
 		}
 
 		onehalfdark.replace = {
 			a = { bg = C.yellow, fg = C.bg, gui = "bold" },
-			b = { bg = C.non_text, fg = C.yellow },
-			c = { bg = C.non_text, fg = C.fg },
+			b = { bg = C.bg, fg = C.yellow },
+			c = { bg = C.bg, fg = C.fg },
 		}
 
 		onehalfdark.command = {
 			a = { bg = C.gutter_fg, fg = C.bg, gui = "bold" },
-			b = { bg = C.non_text, fg = C.gutter_fg },
-			c = { bg = C.non_text, fg = C.fg },
+			b = { bg = C.bg, fg = C.gutter_fg },
+			c = { bg = C.bg, fg = C.fg },
 		}
 
 		onehalfdark.terminal = {
 			a = { bg = C.gutter_fg, fg = C.bg, gui = "bold" },
-			b = { bg = C.non_text, fg = C.gutter_fg },
-			c = { bg = C.non_text, fg = C.fg },
+			b = { bg = C.bg, fg = C.gutter_fg },
+			c = { bg = C.bg, fg = C.fg },
 		}
-
 
 		onehalfdark.inactive = {
 			a = { bg = C.bg, fg = C.gutter_fg },
-			b = { bg = C.non_text, fg = C.black, gui = "bold" },
+			b = { bg = C.bg, fg = C.black, gui = "bold" },
 			c = { bg = C.bg, fg = C.black },
 		}
 
@@ -103,15 +102,15 @@ return {
 			color = { gui = "italic,bold" },
 		}
 
-
 		require("lualine").setup({
 			options = {
+				-- theme = onehalfdark,
 				theme = onehalfdark,
 				icons_enabled = true,
 				-- component_separators = { left = '', right = '' },
 				-- section_separators = { left = '', right = '' },
-				component_separators = { left = '', right = '' },
-				section_separators = { left = '', right = '' },
+				component_separators = { left = "", right = "" },
+				section_separators = { left = "", right = "" },
 				disabled_filetypes = {
 					statusline = {},
 					winbar = {},
@@ -120,8 +119,7 @@ return {
 				always_divide_middle = true,
 				globalstatus = true,
 			},
-			sections = { lualine_a = { mode } }
-
+			sections = { lualine_a = { mode } },
 		})
 	end,
 }
