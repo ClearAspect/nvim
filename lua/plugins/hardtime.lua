@@ -4,5 +4,5 @@ return {
 	-- config = function()
 	-- 	local hardtime = require("hardtime")
 	-- 	hardtime.setup()
-	-- end
+	-- end,
 }

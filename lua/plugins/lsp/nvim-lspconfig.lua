@@ -11,6 +11,14 @@ return {
 
 		-- Diagnostic Lines
 		vim.diagnostic.config({
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = "",
+					[vim.diagnostic.severity.WARN] = "",
+					[vim.diagnostic.severity.INFO] = "",
+					[vim.diagnostic.severity.HINT] = "",
+				},
+			},
 			virtual_text = true,
 			virtual_lines = {
 				current_line = true,
