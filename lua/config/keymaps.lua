@@ -43,7 +43,6 @@ vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 -- vim.keymap.set("n", "<leader>fv", "<cmd>Ex<cr>", { desc = "Open Netrw" })
 vim.keymap.set("n", "<leader>fv", "<cmd>Oil<cr>", { desc = "Open Oil" })
 
-
 -- Fzf
 vim.keymap.set("n", "<leader>ff", function()
 	require("fzf-lua").files({
@@ -79,12 +78,8 @@ vim.keymap.set("n", "<leader>fe", function()
 	require("fzf-lua").diagnostics_document()
 end, { desc = "Fuzzy Errors" })
 
-
 -- Neo-tree
 vim.keymap.set("n", "<leader>ft", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neo-tree" })
-
-
-
 
 -- ╔═════════════════════════════════════════════════╗
 -- ║ Code                                            ║
@@ -106,17 +101,14 @@ vim.keymap.set({ "i", "s" }, "<C-CR>", function()
 	end
 end, { silent = true })
 
-
 -- ╔═════════════════════════════════════════════════╗
 -- ║ Git                                             ║
 -- ╚═════════════════════════════════════════════════╝
 
-
-vim.keymap.set("n", "<leader>gs", "<cmd>Neogit<cr>", { desc = "Git Status" })
+vim.keymap.set("n", "<leader>Gs", "<cmd>Neogit<cr>", { desc = "Git Status" })
+vim.keymap.set("n", "<leader>Gdo", "<cmd>DiffviewOpen<cr>", { desc = "Open Diff View" })
+vim.keymap.set("n", "<leader>Gdc", "<cmd>DiffviewClose<cr>", { desc = "Close Diff View" })
 vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns blame<cr>", { desc = "Git Blame" })
-vim.keymap.set("n", "<leader>gdo", "<cmd>DiffviewOpen<cr>", { desc = "Open Diff View" })
-vim.keymap.set("n", "<leader>gdc", "<cmd>DiffviewClose<cr>", { desc = "Close Diff View" })
-
 
 -- ╔═════════════════════════════════════════════════╗
 -- ║ CopilotChat                                     ║
@@ -127,7 +119,6 @@ vim.keymap.set("n", "<leader>gdc", "<cmd>DiffviewClose<cr>", { desc = "Close Dif
 -- vim.keymap.set("n", "<leader>cce", "<cmd>CopilotChatExplain<cr>", { desc = "CopilotChat - Explain code" })
 -- vim.keymap.set("n", "<leader>ccf", "<cmd>CopilotChatCode<cr>", { desc = "CopilotChat - Review Code" })
 
-
 -- vim.keymap.set("n", "<leader>ccq", function()
 -- 		local input = vim.fn.input("Quick Chat: ")
 -- 		if input ~= "" then
@@ -136,20 +127,25 @@ vim.keymap.set("n", "<leader>gdc", "<cmd>DiffviewClose<cr>", { desc = "Close Dif
 -- 	end,
 -- 	{ desc = "CopilotChat - Quick chat" })
 
-
-
 -- ╔═════════════════════════════════════════════════╗
 -- ║ CopilotChat                                     ║
 -- ╚═════════════════════════════════════════════════╝
 -- load the session for the current directory
-vim.keymap.set("n", "<leader>qs", function() require("persistence").load() end, { desc = "Load directory session" })
+vim.keymap.set("n", "<leader>qs", function()
+	require("persistence").load()
+end, { desc = "Load directory session" })
 
 -- select a session to load
-vim.keymap.set("n", "<leader>qS", function() require("persistence").select() end, { desc = "Select session to load" })
+vim.keymap.set("n", "<leader>qS", function()
+	require("persistence").select()
+end, { desc = "Select session to load" })
 
 -- load the last session
-vim.keymap.set("n", "<leader>ql", function() require("persistence").load({ last = true }) end,
-	{ desc = "Load last session" })
+vim.keymap.set("n", "<leader>ql", function()
+	require("persistence").load({ last = true })
+end, { desc = "Load last session" })
 
 -- stop Persistence => session won't be saved on exit
-vim.keymap.set("n", "<leader>qd", function() require("persistence").stop() end, { desc = "Stop session saving" })
+vim.keymap.set("n", "<leader>qd", function()
+	require("persistence").stop()
+end, { desc = "Stop session saving" })
