@@ -19,10 +19,10 @@ return {
 					[vim.diagnostic.severity.HINT] = "",
 				},
 			},
-			virtual_text = true,
-			virtual_lines = {
-				current_line = true,
-			},
+			-- virtual_text = true,
+			-- virtual_lines = {
+			-- 	current_line = true,
+			-- },
 		})
 
 		-- Inlay Hints
