@@ -38,7 +38,7 @@ return {
 				-- Display the source of the diagnostic (e.g., basedpyright, vsserver, lua_ls etc.)
 				show_source = {
 					enabled = false,
-					if_many = false,
+					if_many = true,
 				},
 
 				-- Use icons defined in the diagnostic configuration

@@ -116,6 +116,7 @@ return {
 			"ruff",
 			"rust_analyzer",
 			"sqlls",
+			"tombi",
 			"ts_ls",
 			"vimls",
 			"zls",
