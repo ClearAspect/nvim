@@ -29,7 +29,7 @@ return {
 				toml = { "tombi" },
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
-				zig = { "zig fmt" },
+				zig = { "zigfmt" },
 				-- javascript = { "biome" },
 				-- typescript = { "biome" },
 				-- javascriptreact = { "biome" },
