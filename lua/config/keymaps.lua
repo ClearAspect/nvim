@@ -43,12 +43,15 @@ vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 -- vim.keymap.set("n", "<leader>fv", "<cmd>Ex<cr>", { desc = "Open Netrw" })
 vim.keymap.set("n", "<leader>fv", "<cmd>Oil<cr>", { desc = "Open Oil" })
 
+-- FFF
+vim.keymap.set("n", "<leader>ff", "<cmd>FFFFind<cr>", { desc = "Toggle FFF" })
+
 -- Fzf
-vim.keymap.set("n", "<leader>ff", function()
-	require("fzf-lua").files({
-		-- cwd = require("oil").get_current_dir(),
-	})
-end, { desc = "Fuzzy Files" })
+-- vim.keymap.set("n", "<leader>ff", function()
+-- 	require("fzf-lua").files({
+-- 		-- cwd = require("oil").get_current_dir(),
+-- 	}
+-- end, { desc = "Fuzzy Files" })
 
 vim.keymap.set("n", "<leader>fg", function()
 	require("fzf-lua").grep({

@@ -13,7 +13,7 @@ return {
 				c = { "clang-format" },
 				cpp = { "clang-format" },
 				css = { "prettier" },
-				glsl = { "clang-format" },
+				-- glsl = { "clang-format" },
 				go = { "gofmt" },
 				java = { "clang-format" },
 				javascript = { "prettier" },

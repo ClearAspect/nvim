@@ -89,9 +89,14 @@ return {
 				-- { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
 				{ type = "text",    val = string.rep("-", 50), opts = { hl = "SpecialComment", position = "center" } },
 				dashboard.button("SPC fv", "󰉋  Explore Files", "<cmd>Oil<CR>"),
-				dashboard.button("SPC ff", "󰥨  Find File", function() require("fzf-lua").files() end),
-				dashboard.button("SPC fg", "󰱼  Find Word", function() require("fzf-lua").grep() end),
-				dashboard.button("SPC fr", "  MRU/Frecent Files", function() require("fzf-lua").oldfiles() end),
+				-- dashboard.button("SPC ff", "󰥨  Find File", function() require("fzf-lua").files() end),
+				dashboard.button("SPC ff", "󰥨  Find File", "<cmd>FFFFind<CR>"),
+				dashboard.button("SPC fg", "󰱼  Find Word", function()
+					require("fzf-lua").grep()
+				end),
+				dashboard.button("SPC fr", "  MRU/Frecent Files", function()
+					require("fzf-lua").oldfiles()
+				end),
 				dashboard.button("s", "  Config", createSystemCommand("config")),
 				{ type = "padding", val = 1 },
 				dashboard.button("q", "  Quit", "<cmd>qa<CR>"),
