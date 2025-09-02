@@ -11,14 +11,13 @@ end
 return M]]
 end
 
-
 local function plugin_template(relative_path, filename)
 	return [[
 return {
 	"author/plugin-name",
-	-- event = { "VeryLazy" },
 	-- dependencies = { "" },
 	-- lazy = false,
+	-- event = { "VeryLazy" },
 	-- ft = { "" },
 	config = function()
 		-- local plugin_name = require("plugin-name")
@@ -31,7 +30,6 @@ return {
 	end,
 }]]
 end
-
 
 --- @param opts table
 ---   A table containing the following fields:

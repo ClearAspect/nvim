@@ -12,7 +12,7 @@ require("lazy").setup({
 		-- import your plugins
 		{ import = "plugins" },
 		{ import = "plugins.lsp" },
-		{ import = "plugins.gpt" },
+		{ import = "plugins.acp" },
 		{ import = "plugins.git" },
 		{ import = "plugins.bloat" },
 	},
