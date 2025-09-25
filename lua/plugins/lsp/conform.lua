@@ -26,6 +26,7 @@ return {
 				rust = { "rustfmt" },
 				s = { "asmfmt" },
 				sql = { "sqlfmt" },
+				tex = { "latexindent" },
 				toml = { "tombi" },
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },

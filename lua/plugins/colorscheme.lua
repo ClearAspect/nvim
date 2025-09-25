@@ -2,7 +2,7 @@ return {
 	-- My Version of OneHalf
 	{
 		-- "clearaspect/onehalf",
-		dir = "~/Documents/GitHub/onehalf/",
+		dir = "~/Developer/onehalf/",
 		lazy = false,
 		priority = 1000,
 		config = function()

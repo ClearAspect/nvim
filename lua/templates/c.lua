@@ -6,7 +6,8 @@ local function laurier_header(relative_path, filename)
 	-- In case there are other invalid characters for a macro name, replace them
 	guard_name = string.gsub(guard_name, "-", "_")
 
-	return string.format([[
+	return string.format(
+		[[
 /**
  * -------------------------------------
  * @file %s
@@ -25,11 +26,18 @@ local function laurier_header(relative_path, filename)
 |cursor|
 
 #endif /* %s */
-  ]], filename, os.date("%Y-%m-%d"), guard_name, guard_name, guard_name)
+  ]],
+		filename,
+		os.date("%Y-%m-%d"),
+		guard_name,
+		guard_name,
+		guard_name
+	)
 end
 
 local function laurier_source(relative_path, filename)
-	return string.format([[
+	return string.format(
+		[[
 /**
  * -------------------------------------
  * @file %s
@@ -42,7 +50,31 @@ local function laurier_source(relative_path, filename)
  * -------------------------------------
  */
 
-|cursor|]], filename, os.date("%Y-%m-%d"))
+|cursor|]],
+		filename,
+		os.date("%Y-%m-%d")
+	)
+end
+
+local function header_file(relative_path, filename)
+	-- Create include guard name by converting the filename to uppercase and replacing dots with underscores
+	local guard_name = string.upper(string.gsub(filename, "%.", "_"))
+	-- In case there are other invalid characters for a macro name, replace them
+	guard_name = string.gsub(guard_name, "-", "_")
+
+	return string.format(
+		[[
+#ifndef %s
+#define %s
+
+|cursor|
+
+#endif /* %s */
+  ]],
+		guard_name,
+		guard_name,
+		guard_name
+	)
 end
 
 --- @param opts table
@@ -52,8 +84,9 @@ end
 ---   - `filename` (string): The filename of the new file, e.g., "init.lua".
 return function(opts)
 	local template = {
-		{ pattern = ".*.c", content = laurier_source },
-		{ pattern = ".*.h", content = laurier_header },
+		-- { pattern = ".*laurier.*", content = laurier_source },
+		-- { pattern = ".*Laurier.*", content = laurier_header },
+		{ pattern = ".*.h", content = header_file },
 	}
 
 	return utils.find_entry(template, opts)
