@@ -2,6 +2,9 @@ return {
 	"lewis6991/gitsigns.nvim",
 	lazy = true,
 	event = "VeryLazy",
+	keys = {
+		{ "<leader>gb", "<cmd>Gitsigns blame<cr>", desc = "Git Blame" },
+	},
 	opts = {
 		hooks = {
 			-- Check diff of a commit

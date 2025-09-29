@@ -3,6 +3,9 @@ return {
 	requires = { "nvim-tree/nvim-web-devicons" },
 	event = { "VimEnter" },
 	lazy = true,
+	keys = {
+		{ "<leader><ESC>", "<cmd>Alpha<cr>", desc = "Main Menu" },
+	},
 	config = function()
 		local dashboard = require("alpha.themes.dashboard")
 
@@ -92,9 +95,9 @@ return {
 				-- dashboard.button("SPC ff", "󰥨  Find File", function() require("fzf-lua").files() end),
 				dashboard.button("SPC ff", "󰥨  Find File", "<cmd>FFFFind<CR>"),
 				dashboard.button("SPC fg", "󰱼  Find Word", function()
-					require("fzf-lua").grep()
+					require("fzf-lua").live_grep()
 				end),
-				dashboard.button("SPC fr", "  MRU/Frecent Files", function()
+				dashboard.button("SPC fo", "  MRU Files", function()
 					require("fzf-lua").oldfiles()
 				end),
 				dashboard.button("s", "  Config", createSystemCommand("config")),

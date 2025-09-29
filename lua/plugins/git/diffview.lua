@@ -11,6 +11,10 @@ return {
 		"DiffviewRefresh",
 		"DiffviewLog",
 	},
+	keys = {
+		{ "<leader>Gdo", "<cmd>DiffviewOpen<cr>", desc = "Open Diff View" },
+		{ "<leader>Gdc", "<cmd>DiffviewClose<cr>", desc = "Close Diff View" },
+	},
 
 	config = function()
 		local diffview = require("diffview")

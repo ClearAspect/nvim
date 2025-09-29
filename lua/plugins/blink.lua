@@ -8,6 +8,12 @@ return {
 		"L3MON4D3/LuaSnip",
 		-- "fang2hou/blink-copilot",
 	},
+	keys = {
+		{ "<C-E>", function() require("luasnip").expand() end, mode = "i", desc = "Expand snippet" },
+		{ "<C-N>", function() require("luasnip").jump(1) end, mode = { "i", "s" }, desc = "Jump to next snippet node" },
+		{ "<C-P>", function() require("luasnip").jump(-1) end, mode = { "i", "s" }, desc = "Jump to previous snippet node" },
+		{ "<C-CR>", function() if require("luasnip").choice_active() then require("luasnip").change_choice(1) end end, mode = { "i", "s" }, desc = "Change choice in snippet" },
+	},
 
 	-- use a release tag to download pre-built binaries
 	version = "1.*",

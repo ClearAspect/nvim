@@ -1,7 +1,11 @@
 return {
 	"stevearc/oil.nvim",
+	lazy = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
+	},
+	keys = {
+		{ "<leader>fv", "<cmd>Oil<cr>", desc = "Open Oil" },
 	},
 	config = function()
 		require("oil").setup({
