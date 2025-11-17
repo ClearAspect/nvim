@@ -22,10 +22,7 @@ return {
 				},
 				-- enable indentation
 				indent = { enable = true },
-				-- enable autotagging (w/ nvim-ts-autotag plugin)
-				autotag = {
-					enable = true,
-				},
+
 				-- ensure these language parsers are installed
 				ensure_installed = {
 					-- General and System
@@ -56,15 +53,6 @@ return {
 					"latex",
 					"zig",
 					"glsl",
-				},
-				incremental_selection = {
-					enable = true,
-					keymaps = {
-						init_selection = "<C-CR>",
-						scope_incremental = "<C-CR>",
-						node_incremental = "<TAB>",
-						node_decremental = "<S-TAB>",
-					},
 				},
 				textobjects = {
 					select = {

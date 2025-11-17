@@ -1,0 +1,5 @@
+def fib():
+    printf
+
+
+fib()

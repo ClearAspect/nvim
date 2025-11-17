@@ -12,7 +12,7 @@ require("lazy").setup({
 		-- import your plugins
 		{ import = "plugins" },
 		{ import = "plugins.lsp" },
-		{ import = "plugins.acp" },
+		-- { import = "plugins.acp" },
 		{ import = "plugins.git" },
 		{ import = "plugins.bloat" },
 	},
@@ -29,7 +29,6 @@ vim.cmd("colorscheme onehalfdark")
 -- vim.cmd("Copilot disable")
 
 vim.lsp.set_log_level("error")
-vim.cmd("SupermavenStop")
 
 -- for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
 -- 	vim.api.nvim_set_hl(0, group, {})

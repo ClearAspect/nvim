@@ -10,6 +10,11 @@ return {
 			onehalf.setup({
 				transparency = false,
 				terminal_colors = true, -- Apply the theme to neovim terminal windows
+				dimming = {
+					enable = false,
+					dim_level = 0.33,
+					preserve_accents = true,
+				},
 				-- Style to be applied to different syntax groups
 				-- Value is any valid attr-list value for `:help nvim_set_hl`
 				styles = {
@@ -27,6 +32,15 @@ return {
 					operators = {},
 				},
 			})
+		end,
+	},
+	{
+		"projekt0n/github-nvim-theme",
+		name = "github-theme",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("github-theme").setup({})
 		end,
 	},
 	{

@@ -12,6 +12,7 @@ vim.opt.wrap = false
 
 -- Folds
 
+vim.opt.foldtext = ""
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldlevel = 16
@@ -33,6 +34,7 @@ vim.opt.scrolloff = 4
 vim.opt.updatetime = 250
 vim.opt.showmode = false
 vim.opt.signcolumn = "yes"
+vim.o.winborder = "rounded"
 
 -- Tweaks
 
