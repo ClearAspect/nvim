@@ -1,8 +1,8 @@
 return {
 	-- My Version of OneHalf
 	{
-		-- "clearaspect/onehalf",
-		dir = "~/Developer/onehalf/",
+		"clearaspect/onehalf",
+		-- dir = "~/Developer/onehalf/",
 		lazy = false,
 		priority = 1000,
 		config = function()
