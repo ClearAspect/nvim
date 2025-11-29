@@ -21,11 +21,15 @@ require("lazy").setup({
 	install = { colorscheme = { "onehalfdark" } },
 	-- automatically check for plugin updates
 	checker = { enabled = true, notify = false },
-	change_detection = { enabled = true, notify = false },
+	change_detection = { enabled = true, notify = true },
+	ui = {
+		border = "none",
+	},
 })
 
 -- vim.cmd("colorscheme catppuccin-mocha")
 vim.cmd("colorscheme onehalfdark")
+-- vim.cmd("colorscheme github_dark_high_contrast")
 -- vim.cmd("Copilot disable")
 
 vim.lsp.set_log_level("error")

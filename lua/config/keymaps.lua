@@ -20,8 +20,11 @@ vim.keymap.set("i", "<M-BS>", "<C-o>db", { desc = "Alt-Backspace" })
 vim.keymap.set("i", "<M-Del>", "<C-o>dw", { desc = "Alt-Delete" })
 
 -- ╔═════════════════════════════════════════════════╗
--- ║ Buffers                                         ║
+-- ║ Buffers/Tabs                                    ║
 -- ╚═════════════════════════════════════════════════╝
 
-vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Previous Buffer" })
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+
+vim.keymap.set("n", "<leader>tp", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+vim.keymap.set("n", "<leader>tn", "<cmd>tabnext<cr>", { desc = "Next Tab" })

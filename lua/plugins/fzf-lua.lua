@@ -4,6 +4,20 @@ return {
 	lazy = true,
 	-- optional for icon support
 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	-- :lua require('fzf-lua').grep({search='TODO|HACK|PERF|NOTE|FIX', no_esc=true})
+	config = function()
+		-- calling `setup` is optional for customization
+		local fzf_lua = require("fzf-lua")
+		fzf_lua.setup({
+			winopts = {
+				border = "solid",
+				preview = {
+					border = "solid",
+				},
+			},
+		})
+	end,
+
 	keys = {
 		{
 			"<leader>fg",
@@ -56,10 +70,4 @@ return {
 			desc = "Fuzzy Comments",
 		},
 	},
-	-- :lua require('fzf-lua').grep({search='TODO|HACK|PERF|NOTE|FIX', no_esc=true})
-	config = function()
-		-- calling `setup` is optional for customization
-		local fzf_lua = require("fzf-lua")
-		fzf_lua.setup({})
-	end,
 }

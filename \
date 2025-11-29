@@ -1,8 +1,8 @@
 return {
 	-- My Version of OneHalf
 	{
-		-- "clearaspect/onehalf",
-		dir = "~/Developer/onehalf/",
+		"clearaspect/onehalf",
+		-- dir = "~/Developer/onehalf/",
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -11,7 +11,7 @@ return {
 				transparency = false,
 				terminal_colors = true, -- Apply the theme to neovim terminal windows
 				dimming = {
-					enable = false,
+					enable = true,
 					dim_level = 0.33,
 					preserve_accents = true,
 				},

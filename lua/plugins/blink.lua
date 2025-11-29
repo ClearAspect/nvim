@@ -9,6 +9,7 @@ return {
 			"L3MON4D3/LuaSnip",
 			config = function()
 				require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/luasnippets" })
+				require("luasnip.loaders.from_vscode").lazy_load()
 			end,
 		},
 		-- "fang2hou/blink-copilot",

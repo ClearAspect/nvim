@@ -110,6 +110,7 @@ return {
 			"jdtls",
 			"lua_ls",
 			"nixd",
+			"pyright",
 			"ruff",
 			"rust_analyzer",
 			"sqlls",
