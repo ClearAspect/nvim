@@ -21,7 +21,7 @@ require("lazy").setup({
 	install = { colorscheme = { "onehalfdark" } },
 	-- automatically check for plugin updates
 	checker = { enabled = true, notify = false },
-	change_detection = { enabled = true, notify = true },
+	change_detection = { enabled = true, notify = false },
 	ui = {
 		border = "none",
 	},
@@ -32,7 +32,7 @@ vim.cmd("colorscheme onehalfdark")
 -- vim.cmd("colorscheme github_dark_high_contrast")
 -- vim.cmd("Copilot disable")
 
-vim.lsp.set_log_level("error")
+-- vim.lsp.set_log_level("error")
 
 -- for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
 -- 	vim.api.nvim_set_hl(0, group, {})

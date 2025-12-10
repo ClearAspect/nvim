@@ -12,45 +12,45 @@ return {
 		local onehalfdark = {}
 
 		onehalfdark.normal = {
-			a = { bg = C.gutter_fg, fg = C.bg, gui = "bold" },
-			b = { bg = C.bg, fg = C.gutter_fg },
-			c = { bg = C.bg, fg = C.fg },
+			a = { bg = C.gutter_fg, fg = C.bg1, gui = "bold" },
+			b = { bg = nil, fg = C.gutter_fg },
+			c = { bg = nil, fg = C.fg },
 		}
 
 		onehalfdark.insert = {
-			a = { bg = C.gutter_fg, fg = C.bg, gui = "bold" },
-			b = { bg = C.bg, fg = C.gutter_fg },
-			c = { bg = C.bg, fg = C.fg },
+			a = { bg = C.gutter_fg, fg = C.bg1, gui = "bold" },
+			b = { bg = nil, fg = C.gutter_fg },
+			c = { bg = nil, fg = C.fg },
 		}
 
 		onehalfdark.visual = {
-			a = { bg = C.gutter_fg, fg = C.bg, gui = "bold" },
-			b = { bg = C.bg, fg = C.gutter_fg },
-			c = { bg = C.bg, fg = C.fg },
+			a = { bg = C.gutter_fg, fg = C.bg1, gui = "bold" },
+			b = { bg = nil, fg = C.gutter_fg },
+			c = { bg = nil, fg = C.fg },
 		}
 
 		onehalfdark.replace = {
-			a = { bg = C.yellow, fg = C.bg, gui = "bold" },
-			b = { bg = C.bg, fg = C.yellow },
-			c = { bg = C.bg, fg = C.fg },
+			a = { bg = C.yellow, fg = C.bg1, gui = "bold" },
+			b = { bg = nil, fg = C.yellow },
+			c = { bg = nil, fg = C.fg },
 		}
 
 		onehalfdark.command = {
-			a = { bg = C.gutter_fg, fg = C.bg, gui = "bold" },
-			b = { bg = C.bg, fg = C.gutter_fg },
-			c = { bg = C.bg, fg = C.fg },
+			a = { bg = C.gutter_fg, fg = C.bg1, gui = "bold" },
+			b = { bg = nil, fg = C.gutter_fg },
+			c = { bg = nil, fg = C.fg },
 		}
 
 		onehalfdark.terminal = {
-			a = { bg = C.gutter_fg, fg = C.bg, gui = "bold" },
-			b = { bg = C.bg, fg = C.gutter_fg },
-			c = { bg = C.bg, fg = C.fg },
+			a = { bg = C.gutter_fg, fg = C.bg1, gui = "bold" },
+			b = { bg = nil, fg = C.gutter_fg },
+			c = { bg = nil, fg = C.fg },
 		}
 
 		onehalfdark.inactive = {
-			a = { bg = C.bg, fg = C.gutter_fg },
-			b = { bg = C.bg, fg = C.black, gui = "bold" },
-			c = { bg = C.bg, fg = C.black },
+			a = { bg = nil, fg = C.gutter_fg },
+			b = { bg = nil, fg = C.black, gui = "bold" },
+			c = { bg = nil, fg = C.black },
 		}
 
 		local mode = {
@@ -104,8 +104,8 @@ return {
 
 		require("lualine").setup({
 			options = {
-				-- theme = onehalfdark,
 				theme = onehalfdark,
+				-- theme = 'auto',
 				icons_enabled = true,
 				-- component_separators = { left = '', right = '' },
 				-- section_separators = { left = '', right = '' },
@@ -119,7 +119,7 @@ return {
 				always_divide_middle = true,
 				globalstatus = true,
 			},
-			sections = { lualine_a = { mode } },
+			-- sections = { lualine_a = { mode } },
 		})
 	end,
 }

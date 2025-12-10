@@ -1,5 +1,8 @@
 return {
 	"zbirenbaum/copilot.lua",
+	dependencies = {
+		"copilotlsp-nvim/copilot-lsp",
+	},
 	-- event = { "VeryLazy" },
 	-- lazy = true,
 	config = function()
@@ -36,7 +39,7 @@ return {
 				},
 			},
 			nes = {
-				enabled = true, -- requires copilot-lsp as a dependency
+				enabled = false, -- requires copilot-lsp as a dependency
 				auto_trigger = false,
 				keymap = {
 					accept_and_goto = false,

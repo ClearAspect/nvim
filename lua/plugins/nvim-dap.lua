@@ -79,6 +79,10 @@ return {
 			type = "executable",
 			command = "codelldb", -- or if not in $PATH: "/absolute/path/to/codelldb"
 
+			args = {
+				"--liblldb",
+				"/Library/Developer/CommandLineTools/Library/PrivateFrameworks/LLDB.framework/Versions/A/LLDB",
+			},
 			-- On windows you may have to uncomment this:
 			-- detached = false,
 		}
@@ -87,11 +91,26 @@ return {
 			command = "gdb",
 			args = { "--interpreter=dap", "--eval-command", "set print pretty on" },
 		}
+		dap.adapters.lldb = {
+			type = "executable",
+			command = "lldb-dap",
+		}
 
 		dap.configurations.c = {
 			{
-				name = "Launch file",
+				name = "Launch file (codelldb)",
 				type = "codelldb",
+				request = "launch",
+				program = function()
+					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+				end,
+				cwd = "${workspaceFolder}",
+				stopOnEntry = false,
+			},
+
+			{
+				name = "Launch file (lldb)",
+				type = "lldb",
 				request = "launch",
 				program = function()
 					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")

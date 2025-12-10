@@ -8,7 +8,7 @@ return {
 		config = function()
 			local onehalf = require("onehalf")
 			onehalf.setup({
-				transparency = false,
+				transparency = true,
 				terminal_colors = true, -- Apply the theme to neovim terminal windows
 				dimming = {
 					enable = false,
