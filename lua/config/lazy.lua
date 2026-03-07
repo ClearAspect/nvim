@@ -27,12 +27,13 @@ require("lazy").setup({
 	},
 })
 
--- vim.cmd("colorscheme catppuccin-mocha")
 vim.cmd("colorscheme onehalfdark")
+-- vim.cmd("colorscheme catppuccin-mocha")
+-- vim.cmd("colorscheme onehalfdark")
 -- vim.cmd("colorscheme github_dark_high_contrast")
 -- vim.cmd("Copilot disable")
 
--- vim.lsp.set_log_level("error")
+-- vim.lsp.set_log_level("TRACE")
 
 -- for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
 -- 	vim.api.nvim_set_hl(0, group, {})

@@ -29,62 +29,65 @@ return {
 		-- Global mappings.
 		-- See `:help vim.diagnostic.*` for documentation on any of the below functions
 		vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-		vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-		-- vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
 		-- Use LspAttach autocommand to only map the following keys
 		-- after the language server attaches to the current buffer
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("my.lsp", {}),
 			callback = function(args)
-				-- Enable completion triggered by <c-x><c-o>
-				-- vim.bo[args.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
-				-- Buffer local mappings.
-				-- See `:help vim.lsp.*` for documentation on any of the below functions
-				local opts = { buffer = args.buf }
-
-				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-				vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-				vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-				vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
-				vim.keymap.set("n", "<space>wl", function()
-					print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-				end, opts)
-				vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-				vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-				vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
-				vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-
 				local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+				local bufnr = args.buf
 
-				if client:supports_method("textDocument/implementation") then
-					-- Create a keymap for vim.lsp.buf.implementation ...
+				-- Go to definition
+				if client:supports_method("textDocument/definition") then
+					vim.keymap.set(
+						"n",
+						"gd",
+						vim.lsp.buf.definition,
+						{ buffer = bufnr, desc = "LSP: Go to definition" }
+					)
 				end
 
-				-- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
-				if client:supports_method("textDocument/completion") then
-					-- Optional: trigger autocompletion on EVERY keypress. May be slow!
-					-- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
-					-- client.server_capabilities.completionProvider.triggerCharacters = chars
-					-- vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+				-- Go to declaration
+				if client:supports_method("textDocument/declaration") then
+					vim.keymap.set(
+						"n",
+						"gD",
+						vim.lsp.buf.declaration,
+						{ buffer = bufnr, desc = "LSP: Go to declaration" }
+					)
 				end
 
-				-- Auto-format ("lint") on save.
-				-- Usually not needed if server supports "textDocument/willSaveWaitUntil".
+				-- Hover documentation
+				if client:supports_method("textDocument/hover") then
+					vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "LSP: Hover documentation" })
+				end
+
+				-- Type definition (useful for TypeScript/strongly-typed languages)
+				if client:supports_method("textDocument/typeDefinition") then
+					vim.keymap.set(
+						"n",
+						"gy",
+						vim.lsp.buf.type_definition,
+						{ buffer = bufnr, desc = "LSP: Go to type definition" }
+					)
+				end
+
+				-- Enable auto-completion
+				-- if client:supports_method("textDocument/completion") then
+				-- 	vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
+				-- end
+
+				-- Auto-format on save
 				if
 					not client:supports_method("textDocument/willSaveWaitUntil")
 					and client:supports_method("textDocument/formatting")
 				then
 					vim.api.nvim_create_autocmd("BufWritePre", {
-						group = vim.api.nvim_create_augroup("my.lsp", { clear = false }),
-						buffer = args.buf,
+						group = vim.api.nvim_create_augroup("my.lsp.format", { clear = false }),
+						buffer = bufnr,
 						callback = function()
-							vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+							vim.lsp.buf.format({ bufnr = bufnr, id = client.id, timeout_ms = 1000 })
 						end,
 					})
 				end
@@ -114,7 +117,7 @@ return {
 			"ruff",
 			"rust_analyzer",
 			"sqlls",
-			"sourcekit",
+			-- "sourcekit",
 			"tombi",
 			"ts_ls",
 			"vimls",

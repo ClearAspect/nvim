@@ -35,6 +35,7 @@ return {
 				{ "<leader>Gd", group = "Git Diff" },
 				{ "<leader>g",  group = "Gitsigns" },
 				{ "<leader>q",  group = "Persistence" },
+				{ "gr",         group = "LSP" },
 				-- { "<leader>R", group = "Replace" },
 				-- { "<leader>l", group = "LSP" },
 				-- { "<leader>c", group = "LSP (Trouble)" },

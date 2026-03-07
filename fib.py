@@ -1,5 +1,0 @@
-def fib():
-    printf
-
-
-fib()

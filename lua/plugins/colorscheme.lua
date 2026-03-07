@@ -8,7 +8,7 @@ return {
 		config = function()
 			local onehalf = require("onehalf")
 			onehalf.setup({
-				transparency = true,
+				transparency = false,
 				terminal_colors = true, -- Apply the theme to neovim terminal windows
 				dimming = {
 					enable = false,
@@ -34,6 +34,14 @@ return {
 			})
 		end,
 	},
+	-- {
+	-- 	"bachiitter/orng.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("orng").setup()
+	-- 	end,
+	-- },
 	{
 		"projekt0n/github-nvim-theme",
 		name = "github-theme",
@@ -42,9 +50,6 @@ return {
 		config = function()
 			require("github-theme").setup({})
 		end,
-	},
-	{
-		"nyoom-engineering/oxocarbon.nvim",
 	},
 	{
 		"folke/tokyonight.nvim",
@@ -70,6 +75,11 @@ return {
 	-- 	end,
 	-- },
 	{
-		"shaunsingh/nord.nvim",
+		"myxik/lovelace.nvim",
+		lazy = false,
+		priority = 1000,
 	},
+	-- {
+	-- 	"shaunsingh/nord.nvim",
+	-- },
 }

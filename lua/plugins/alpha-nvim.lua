@@ -44,7 +44,6 @@ return {
 				[[ZZZzz /,`.-'`'    -.  ;-;;,_	]],
 				[[     |,4-  ) )-,_. ,\ (  `'-'	]],
 				[[    '---''(_/--'  `-'\_)		]],
-				[[          Temet Nosce         ]],
 			},
 			{
 				[[                               __                ]],
@@ -88,7 +87,7 @@ return {
 
 		local header = {
 			type = "text",
-			val = header[3],
+			val = header[1],
 			opts = {
 				position = "center",
 				hl = "Normal",
@@ -175,7 +174,7 @@ return {
 			{ type = "padding", val = 2 },
 			header,
 			{ type = "padding", val = 2 },
-			get_mru(3),
+			get_mru(10),
 			{ type = "padding", val = 1 },
 			buttons,
 			footer,

@@ -21,6 +21,7 @@ return {
 				json = { "biome" },
 				jsonc = { "biome" },
 				lua = { "stylua" },
+				make = { "bake" },
 				nix = { "alejandra" },
 				python = { "ruff_format" },
 				rust = { "rustfmt" },

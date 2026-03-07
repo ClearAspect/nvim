@@ -1,5 +1,5 @@
 -- ╔═════════════════════════════════════════════════╗
--- ║ Configuration Settings         								 ║
+-- ║ Configuration Settings							 ║
 -- ╚═════════════════════════════════════════════════╝
 
 -- Tab / Indentation
@@ -31,6 +31,7 @@ vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.g.have_nerd_font = true
 vim.opt.scrolloff = 4
+vim.o.sidescrolloff = 16
 vim.opt.updatetime = 250
 vim.opt.showmode = false
 vim.opt.signcolumn = "yes"
