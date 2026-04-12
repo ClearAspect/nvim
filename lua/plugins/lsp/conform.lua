@@ -32,6 +32,7 @@ return {
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
 				zig = { "zigfmt" },
+				qml = { "qmlformat" },
 				-- javascript = { "biome" },
 				-- typescript = { "biome" },
 				-- javascriptreact = { "biome" },

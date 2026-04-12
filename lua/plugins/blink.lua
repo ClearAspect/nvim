@@ -155,6 +155,10 @@ return {
 				-- 	score_offset = 100,
 				-- 	async = true,
 				-- },
+				snippets = {
+					-- score_offset = 10,
+					should_show_items = true,
+				},
 			},
 
 			-- Disable cmdline completions

@@ -18,7 +18,7 @@ require("lazy").setup({
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "onehalfdark" } },
+	install = { colorscheme = { "umbra" } },
 	-- automatically check for plugin updates
 	checker = { enabled = true, notify = false },
 	change_detection = { enabled = true, notify = false },
@@ -27,7 +27,7 @@ require("lazy").setup({
 	},
 })
 
-vim.cmd("colorscheme onehalfdark")
+vim.cmd("colorscheme umbra")
 -- vim.cmd("colorscheme catppuccin-mocha")
 -- vim.cmd("colorscheme onehalfdark")
 -- vim.cmd("colorscheme github_dark_high_contrast")

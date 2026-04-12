@@ -121,6 +121,7 @@ return {
 			"tombi",
 			"ts_ls",
 			"vimls",
+			"qmlls",
 			"zls",
 		})
 	end,
