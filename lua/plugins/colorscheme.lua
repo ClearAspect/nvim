@@ -112,7 +112,7 @@ return {
 		lazy = false,
 		priority = 1000,
 	},
-	-- {
-	-- 	"shaunsingh/nord.nvim",
-	-- },
+	{
+		"shaunsingh/nord.nvim",
+	},
 }
